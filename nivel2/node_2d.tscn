@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bphs4lx14dhrs"]
+
+[ext_resource type="Texture2D" uid="uid://clejvcybvwrqw" path="res://nivel2/circo.jpeg" id="1_mldse"]
+
+[node name="nivel2" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(578, 321)
+scale = Vector2(0.84999996, 0.8359375)
+texture = ExtResource("1_mldse")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(752, 6, 840, 103, 874, 166, 906, 260, 906, 311, 906, 367, 896, 442, 862, 546, 802, 634, 1147, 643, 1151, 3)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(755, 6, 438, 12, 206, 16, 153, 31, 106, 94, 27, 220, 24, 373, 43, 499, 106, 593, 137, 640, 278, 646, 796, 646, -1, 640, -1, 12)

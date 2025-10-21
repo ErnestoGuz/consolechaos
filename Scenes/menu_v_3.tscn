@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://drdkcj2f4caqk"]
+
+[ext_resource type="Texture2D" uid="uid://bgitwowf6bidl" path="res://Images/fondo1.0.png" id="1_djm6w"]
+[ext_resource type="Script" uid="uid://chjdtwtg8r1g7" path="res://Scripts/menu_v_3.gd" id="1_wjkwp"]
+[ext_resource type="Texture2D" uid="uid://475628ndfl3r" path="res://buttons/Boton_Normal.png" id="2_wjkwp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fk5ct"]
+texture = ExtResource("2_wjkwp")
+region_rect = Rect2(101, 717, 812, 292)
+
+[node name="Menu_V3" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wjkwp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.39308554, 0.3930855, 0.39308548, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_djm6w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -56.0
+offset_right = -1.0480957
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.8945214, 3.0397413)
+theme_override_constants/separation = 2
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_fk5ct")
+text = " "
+
+[node name="Option" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_fk5ct")
+text = " "
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_fk5ct")
+text = " "
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Option" to="." method="_on_option_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

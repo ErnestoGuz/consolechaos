@@ -1,0 +1,68 @@
+[gd_scene load_steps=4 format=3 uid="uid://brk24vynpwun4"]
+
+[ext_resource type="Texture2D" uid="uid://bgitwowf6bidl" path="res://Images/fondo1.0.png" id="1_vvj12"]
+[ext_resource type="Texture2D" uid="uid://475628ndfl3r" path="res://buttons/Boton_Normal.png" id="2_vvj12"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vvj12"]
+texture = ExtResource("2_vvj12")
+texture_margin_bottom = 1697.2031
+axis_stretch_vertical = 1
+region_rect = Rect2(101, 110, 811, 283)
+
+[node name="Menu2prueba" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vvj12")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 17.0
+offset_top = -1317.0
+offset_right = 17.0
+offset_bottom = 325.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 350
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 400
+theme_override_constants/margin_bottom = 300
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer2"]
+layout_mode = 2
+text = "GAME"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_vvj12")
+text = "Play
+"
+
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options
+"
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit"

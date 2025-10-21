@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://dk4jcqhxmlrh3"]
+
+[ext_resource type="Texture2D" uid="uid://drif0cxu4wr3y" path="res://nivel1/Frame/fondo_jue.jpg" id="1_wtcfe"]
+[ext_resource type="Texture2D" uid="uid://drietetil1yo4" path="res://hon.png" id="3_0hol4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
+size = Vector2(41.486206, 30.67308)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hbgy"]
+size = Vector2(51, 43)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5t5s1"]
+size = Vector2(45, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tw5u2"]
+size = Vector2(41.5, 29.25)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-2, 5)
+scale = Vector2(0.9032257, 1.1981306)
+texture = ExtResource("1_wtcfe")
+centered = false
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ParallaxBackground/ParallaxLayer/Sprite2D"]
+position = Vector2(35.97171, 121.5142)
+shape = SubResource("RectangleShape2D_0e48y")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ParallaxBackground/ParallaxLayer/Sprite2D"]
+position = Vector2(1206.493, 98.799904)
+scale = Vector2(0.9999999, 1)
+shape = SubResource("RectangleShape2D_0e48y")
+
+[node name="hongo" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="hongo"]
+position = Vector2(451.5, 200.59375)
+scale = Vector2(0.05799995, 0.053624995)
+texture = ExtResource("3_0hol4")
+
+[node name="Sprite2D5" type="Sprite2D" parent="hongo"]
+position = Vector2(1097, 123)
+scale = Vector2(0.054000348, 0.04762494)
+texture = ExtResource("3_0hol4")
+
+[node name="Sprite2D4" type="Sprite2D" parent="hongo"]
+position = Vector2(31.000023, 150.00002)
+scale = Vector2(0.057999987, 0.051624995)
+texture = ExtResource("3_0hol4")
+
+[node name="Sprite2D2" type="Sprite2D" parent="hongo"]
+position = Vector2(835, 216)
+scale = Vector2(0.090000086, 0.07162501)
+texture = ExtResource("3_0hol4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hongo"]
+position = Vector2(449, 203)
+shape = SubResource("RectangleShape2D_0e48y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hongo/CollisionShape2D"]
+position = Vector2(386, 14)
+shape = SubResource("RectangleShape2D_0e48y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(214.5, 196.5)
+shape = SubResource("RectangleShape2D_6hbgy")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(602.5, 154.5)
+shape = SubResource("RectangleShape2D_5t5s1")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(382.25, 146.375)
+shape = SubResource("RectangleShape2D_tw5u2")

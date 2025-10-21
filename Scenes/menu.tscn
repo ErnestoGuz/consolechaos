@@ -1,0 +1,142 @@
+[gd_scene load_steps=16 format=3 uid="uid://bxa5qskjl0fbj"]
+
+[ext_resource type="Script" uid="uid://beepquvevfvlp" path="res://Scripts/menu.gd" id="1_xhh6f"]
+[ext_resource type="Texture2D" uid="uid://d0yjfrxrypuiy" path="res://Images/fondo2.0.png" id="2_jsrd8"]
+[ext_resource type="FontFile" uid="uid://tt8nc5f3wcb1" path="res://fonts/LAUGHTER.otf" id="3_cayip"]
+[ext_resource type="Texture2D" uid="uid://l8werhn4js7q" path="res://buttons/boton_presionado.png" id="5_jsrd8"]
+[ext_resource type="Texture2D" uid="uid://475628ndfl3r" path="res://buttons/Boton_Normal.png" id="5_wwsa2"]
+[ext_resource type="Texture2D" uid="uid://c3we5nhhuq4sp" path="res://buttons/Boton_Normal_hover.png" id="6_jsrd8"]
+
+[sub_resource type="Theme" id="Theme_cayip"]
+default_font = ExtResource("3_cayip")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wwsa2"]
+texture = ExtResource("5_wwsa2")
+texture_margin_top = 227.0
+region_rect = Rect2(101, 110, 814.125, 275.188)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wbdvm"]
+texture = ExtResource("5_jsrd8")
+region_rect = Rect2(37, 66, 182, 62)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_q3rjx"]
+texture = ExtResource("6_jsrd8")
+region_rect = Rect2(101, 110, 811, 283)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_158mb"]
+texture = ExtResource("5_wwsa2")
+texture_margin_top = 227.0
+region_rect = Rect2(95, 717, 818, 295.938)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6swd7"]
+texture = ExtResource("6_jsrd8")
+region_rect = Rect2(101, 717, 812, 292)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jsrd8"]
+texture = ExtResource("5_wwsa2")
+texture_margin_top = 227.0
+region_rect = Rect2(101, 412, 793.875, 292)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7qvly"]
+texture = ExtResource("6_jsrd8")
+region_rect = Rect2(101, 412, 811, 292)
+
+[sub_resource type="Theme" id="Theme_158mb"]
+default_font = ExtResource("3_cayip")
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -25.0
+offset_right = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xhh6f")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 24.0
+offset_right = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.7792914, 0.7792914, 0.7792913, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jsrd8")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -532.0
+offset_top = -62.5
+offset_right = -15.020142
+offset_bottom = 797.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.53314185, 0.26639742)
+theme = SubResource("Theme_cayip")
+theme_override_constants/separation = 15
+
+[node name="play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+theme_override_styles/normal = SubResource("StyleBoxTexture_wwsa2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_wbdvm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_q3rjx")
+text = " "
+
+[node name="options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_158mb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6swd7")
+text = " "
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxTexture_jsrd8")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7qvly")
+text = " "
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -541.0
+offset_top = 47.0
+offset_right = 173.0
+offset_bottom = 133.0
+grow_horizontal = 2
+scale = Vector2(0.9100955, 2.3959079)
+theme = SubResource("Theme_158mb")
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 88
+text = " THE CHAOS CONSOLE"
+horizontal_alignment = 1
+
+[node name="Popup" type="Popup" parent="."]
+
+[connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]

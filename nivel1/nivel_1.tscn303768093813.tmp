@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckuiq7r3thah"]
+
+[ext_resource type="Script" uid="uid://k0hmkgx4p4hg" path="res://nivel1/nivel_1.gd" id="1_h558p"]
+[ext_resource type="PackedScene" uid="uid://b85vvu07a5lr" path="res://nivel1/personaje/character_body_2d.tscn" id="1_u2ear"]
+[ext_resource type="PackedScene" uid="uid://dga7j8gs351xu" path="res://nivel1/zombie2/zombiemov.tscn" id="2_m8l61"]
+
+[node name="Nivel1" type="Node2D"]
+script = ExtResource("1_h558p")
+
+[node name="player" parent="." groups=["player"] instance=ExtResource("1_u2ear")]
+
+[node name="ZombiesContainer" type="Node2D" parent="."]
+
+[node name="zombie1" parent="ZombiesContainer" instance=ExtResource("2_m8l61")]
+
+[node name="zombie2" parent="ZombiesContainer" instance=ExtResource("2_m8l61")]
+
+[node name="zombie3" parent="ZombiesContainer" instance=ExtResource("2_m8l61")]

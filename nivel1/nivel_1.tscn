@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckuiq7r3thah"]
+
+[ext_resource type="PackedScene" uid="uid://b85vvu07a5lr" path="res://nivel1/personaje/character_body_2d.tscn" id="1_u2ear"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u2ear"]
+font_size = 18
+
+[node name="Nivel1" type="Node2D"]
+
+[node name="personaje" parent="." instance=ExtResource("1_u2ear")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Objetivo:
+Puntuacion: "
+label_settings = SubResource("LabelSettings_u2ear")
