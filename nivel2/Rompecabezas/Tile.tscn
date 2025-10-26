@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdvasylyx4h2d"]
+
+[ext_resource type="Script" uid="uid://clfvr8kmiil3u" path="res://nivel2/Rompecabezas/Tile.gd" id="1_ec13b"]
+[ext_resource type="Texture2D" uid="uid://ks6dgfskjbk0" path="res://nivel2/Rompecabezas/descarga.jpg" id="2_yepk2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hlhhj"]
+draw_center = false
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.46229053, 0.46229064, 0.46229035, 1)
+
+[node name="Tile" type="TextureButton"]
+mouse_filter = 2
+script = ExtResource("1_ec13b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(32, 32)
+scale = Vector2(1.3333334, 0.9846153)
+texture = ExtResource("2_yepk2")
+hframes = 4
+vframes = 4
+
+[node name="Number" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+
+[node name="ColorRect" type="ColorRect" parent="Number"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+mouse_filter = 2
+color = Color(0.05490196, 0.05490196, 0.05490196, 0.6862745)
+
+[node name="Label" type="Label" parent="Number/ColorRect"]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hlhhj")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
