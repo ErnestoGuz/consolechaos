@@ -1,0 +1,128 @@
+[gd_scene load_steps=21 format=3 uid="uid://cxga1fu8smk2v"]
+
+[ext_resource type="Script" uid="uid://b7jaul1wf1sc3" path="res://nivel2/jugador_1.gd" id="1_6jk6k"]
+[ext_resource type="Texture2D" uid="uid://0im6fx6nlk46" path="res://nivel2/images/personaje-n2/frame1.2.png" id="2_g5e25"]
+[ext_resource type="Texture2D" uid="uid://din2lt864ttrk" path="res://nivel2/framespersonaje/frame1.4.png" id="3_7qe3j"]
+[ext_resource type="Texture2D" uid="uid://c6gyboujqudf7" path="res://nivel2/framespersonaje/frame18.png" id="4_f2tpt"]
+[ext_resource type="Texture2D" uid="uid://sojlc8beuyu2" path="res://nivel2/framespersonaje/frame19.png" id="5_m0awy"]
+[ext_resource type="Texture2D" uid="uid://ddsjp2f0hs2aq" path="res://nivel2/framespersonaje/frame20.png" id="6_cmdkt"]
+[ext_resource type="Texture2D" uid="uid://cb3wr2xn7hmi" path="res://nivel2/framespersonaje/frame16.1.png" id="7_4igj8"]
+[ext_resource type="Texture2D" uid="uid://bwlls4y6df288" path="res://nivel2/framespersonaje/frame6.2.png" id="8_doemf"]
+[ext_resource type="Texture2D" uid="uid://bpeibni4sbm4k" path="res://nivel2/framespersonaje/frame14.1.png" id="9_tsop5"]
+[ext_resource type="Texture2D" uid="uid://c24bny5qse6av" path="res://nivel2/framespersonaje/frame7.2.png" id="10_gmc0f"]
+[ext_resource type="Texture2D" uid="uid://bd04ywwfwiam3" path="res://nivel2/framespersonaje/frame9.1.png" id="11_4igj8"]
+[ext_resource type="Texture2D" uid="uid://bcbdfgeb3yk2g" path="res://nivel2/framespersonaje/frame10.1.png" id="12_doemf"]
+[ext_resource type="Texture2D" uid="uid://bu4h43tunr8n5" path="res://nivel2/framespersonaje/frame11.1.png" id="13_tsop5"]
+[ext_resource type="Texture2D" uid="uid://ooo0sb3dm5dg" path="res://nivel2/framespersonaje/frame12.1.png" id="14_gmc0f"]
+[ext_resource type="Texture2D" uid="uid://bcvu4hlbptxah" path="res://nivel2/framespersonaje/frame16.png" id="15_rqugu"]
+[ext_resource type="Texture2D" uid="uid://dojv4h8plpr8d" path="res://nivel2/framespersonaje/frame6.1.png" id="16_8jqmw"]
+[ext_resource type="Texture2D" uid="uid://cgtub0gvfmb2q" path="res://nivel2/framespersonaje/frame14.png" id="17_o6hj7"]
+[ext_resource type="Texture2D" uid="uid://diheutr8q1w8n" path="res://nivel2/framespersonaje/frame7.1.png" id="18_cu7xf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g5e25"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g5e25")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.91,
+"texture": ExtResource("3_7qe3j")
+}, {
+"duration": 0.81,
+"texture": ExtResource("4_f2tpt")
+}, {
+"duration": 0.91,
+"texture": ExtResource("5_m0awy")
+}, {
+"duration": 0.91,
+"texture": ExtResource("3_7qe3j")
+}, {
+"duration": 0.81,
+"texture": ExtResource("5_m0awy")
+}, {
+"duration": 0.91,
+"texture": ExtResource("6_cmdkt")
+}],
+"loop": true,
+"name": &"idle_abajo_new",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_4igj8")
+}, {
+"duration": 0.71,
+"texture": ExtResource("8_doemf")
+}, {
+"duration": 1.11,
+"texture": ExtResource("9_tsop5")
+}, {
+"duration": 1.11,
+"texture": ExtResource("10_gmc0f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_doemf")
+}],
+"loop": true,
+"name": &"idle_derecha_new",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_4igj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_doemf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_tsop5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_gmc0f")
+}],
+"loop": true,
+"name": &"idle_espalda_new",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.71,
+"texture": ExtResource("15_rqugu")
+}, {
+"duration": 1.11,
+"texture": ExtResource("16_8jqmw")
+}, {
+"duration": 1.11,
+"texture": ExtResource("17_o6hj7")
+}, {
+"duration": 1.11,
+"texture": ExtResource("18_cu7xf")
+}, {
+"duration": 1.11,
+"texture": ExtResource("16_8jqmw")
+}],
+"loop": true,
+"name": &"idle_izquierda_new",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5e25"]
+size = Vector2(32, 32)
+
+[node name="Jugador" type="CharacterBody2D"]
+position = Vector2(94, 51)
+script = ExtResource("1_6jk6k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(160, 64)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_g5e25")
+animation = &"idle_abajo_new"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(162, 85)
+shape = SubResource("RectangleShape2D_g5e25")
