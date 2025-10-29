@@ -15,6 +15,11 @@ run/main_scene="uid://x2wvgn4bbofc"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/size/viewport_width=1380
+window/size/viewport_height=790
+
 [input]
 
 idle_derecha_new={

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bphs4lx14dhrs"]
 
-[ext_resource type="Texture2D" uid="uid://clejvcybvwrqw" path="res://nivel2/circo.jpeg" id="1_mldse"]
+[ext_resource type="Texture2D" uid="uid://clejvcybvwrqw" path="res://nivel2/images/circo.jpeg" id="1_mldse"]
 
 [node name="nivel2" type="Node2D"]
 
