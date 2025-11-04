@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvlx1c8sq5vp"]
+
+[ext_resource type="Script" uid="uid://b2i5i2kh564t" path="res://nivel2/slidepuzzle.gd" id="1_4soli"]
+[ext_resource type="Texture2D" uid="uid://4lriy40okqv3" path="res://nivel2/images/pay1.jpeg" id="2_rbii4"]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_4soli")
+image = ExtResource("2_rbii4")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_right = 464.0
+offset_bottom = 344.0
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_top = 8.0
+offset_right = 464.0
+offset_bottom = 336.0
+
+[node name="punto" type="Control" parent="Control/Panel"]
+anchors_preset = 0
+offset_left = 100.0
+offset_top = 60.0
+offset_right = 100.0
+offset_bottom = 60.0
+
+[node name="Ganaste" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 128.0
+offset_right = 311.0
+offset_bottom = 197.0
+theme_override_colors/font_color = Color(1, 1, 0.09411765, 1)
+theme_override_font_sizes/font_size = 50
+text = "Ganaste"
+
+[node name="TimerLabel" type="Label" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 32.0
+offset_right = 57.0
+offset_bottom = 55.0
+text = "00:00"

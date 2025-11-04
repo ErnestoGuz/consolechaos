@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://cklidbfsh4trq"]
+
+[ext_resource type="Script" uid="uid://c7tqo7h8md6u5" path="res://nivel2/Rompecabezas/slide_puzzle.gd" id="1_18h2n"]
+[ext_resource type="Texture2D" uid="uid://4lriy40okqv3" path="res://nivel2/images/pay1.jpeg" id="2_5l15r"]
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_18h2n")
+image = ExtResource("2_5l15r")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 488.0
+offset_bottom = 328.0
+color = Color(0.6843959, 0.4875852, 0.40320212, 1)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 320.0
+
+[node name="punto" type="Control" parent="Panel"]
+anchors_preset = 0
+offset_left = 128.0
+offset_top = 64.0
+offset_right = 128.0
+offset_bottom = 64.0
+
+[node name="Ganaste" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 232.0
+offset_right = 455.0
+offset_bottom = 301.0
+theme_override_colors/font_color = Color(1, 1, 0.09411765, 1)
+theme_override_font_sizes/font_size = 50
+text = "Ganaste"
+
+[node name="TimerLabel" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 392.0
+offset_top = 8.0
+offset_right = 433.0
+offset_bottom = 31.0
+text = "00:00"

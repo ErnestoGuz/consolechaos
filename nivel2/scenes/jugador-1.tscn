@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://cxga1fu8smk2v"]
 
-[ext_resource type="Script" uid="uid://b7jaul1wf1sc3" path="res://nivel2/jugador_1.gd" id="1_6jk6k"]
+[ext_resource type="Script" uid="uid://b7jaul1wf1sc3" path="res://nivel2/scripts/jugador_1.gd" id="1_6jk6k"]
 [ext_resource type="Texture2D" uid="uid://0im6fx6nlk46" path="res://nivel2/images/personaje-n2/frame1.2.png" id="2_g5e25"]
 [ext_resource type="Texture2D" uid="uid://din2lt864ttrk" path="res://nivel2/framespersonaje/frame1.4.png" id="3_7qe3j"]
 [ext_resource type="Texture2D" uid="uid://c6gyboujqudf7" path="res://nivel2/framespersonaje/frame18.png" id="4_f2tpt"]
@@ -111,18 +111,18 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g5e25"]
-size = Vector2(32, 32)
+size = Vector2(28, 64)
 
 [node name="Jugador" type="CharacterBody2D"]
 position = Vector2(94, 51)
 script = ExtResource("1_6jk6k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(160, 64)
-scale = Vector2(0.2, 0.2)
+position = Vector2(157.25, 56)
+scale = Vector2(0.17659575, 0.16444445)
 sprite_frames = SubResource("SpriteFrames_g5e25")
 animation = &"idle_abajo_new"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(162, 85)
+position = Vector2(160, 53)
 shape = SubResource("RectangleShape2D_g5e25")
