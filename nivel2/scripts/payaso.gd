@@ -1,13 +1,23 @@
 extends CharacterBody2D
 
-@export var speed: float = 200.0
-@export var follow_distance: float = 25.0  # más cerca
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@export var player_path: NodePath
+enum State { PATROL, CHASE }
+var state: State = State.PATROL
 
-var player_prev_pos: Vector2
-var player: Node = null
-var last_dir := Vector2.DOWN  # Dirección por defecto mientras no detectemos movimiento
+@export var speed: float = 200.0
+@export var chase_speed: float = 200.0
+@export var player_path: NodePath
+var patrol_points: Array[Vector2] = []
+@export var patrol_points_path: NodePath
+
+
+
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var vision_area: Area2D = $visionArea
+
+#var player_prev_pos: Vector2
+var player: Node2D = null
+var patrol_index: int = 0
+#var last_dir := Vector2.DOWN  # Dirección por defecto mientras no detectemos movimiento
 
 func _ready():
 	if player_path == null:
@@ -15,51 +25,24 @@ func _ready():
 		return
 
 	player = get_node(player_path)
-	if player:
-		# guardamos la posición inicial
-		player_prev_pos = player.global_position
-
-		# Esperamos un frame para poder detectar la dirección real inicial del jugador
-		await get_tree().process_frame
-
-		# recalculamos después del primer frame
-		var new_pos = player.global_position
-		var initial_dir = new_pos - player_prev_pos
-
-		if initial_dir.length() > 0.01:
-			last_dir = initial_dir.normalized()
-		# actualizamos player_prev_pos para el loop
-		player_prev_pos = player.global_position
-
-		# Ahora sí colocamos al payaso justo detrás del jugador según la dirección detectada
-		global_position = player.global_position - last_dir * follow_distance
-		print("🧟 Payaso colocado detrás del jugador. last_dir =", last_dir)
+	#conecta las señales
+	vision_area.body_entered.connect(_on_player_detected)
+	vision_area.body_exited.connect(_on_player_lost)
+	if patrol_points_path != NodePath():
+		var points_parent = get_node(patrol_points_path)
+		for child in points_parent.get_children():
+			if child is Marker2D:
+				patrol_points.append(child.global_position)
+				print("🧭 Puntos de patrulla cargados:", patrol_points)
 
 
-func _physics_process(delta):
-	if player == null:
-		return
-
-	# Detectar movimiento del jugador (más sensible: umbral pequeño)
-	var player_dir = player.global_position - player_prev_pos
-	if player_dir.length() > 0.01:
-		last_dir = player_dir.normalized()
-	player_prev_pos = player.global_position
-
-	# Posición objetivo detrás del jugador
-	var target_pos = player.global_position - last_dir * follow_distance
-
-	# Movimiento hacia la posición detrás del jugador
-	var to_target = target_pos - global_position
-	var distance = to_target.length()
-
-	if distance > 1.5:
-		velocity = to_target.normalized() * speed
-	else:
-		velocity = Vector2.ZERO
-
-	move_and_slide()
-
+func _physics_process(delta:float)-> void:
+	match state:
+		State.PATROL:
+			_patrol(delta)
+			
+		State.CHASE:
+			_chase(delta)
 	# --- Animaciones (mantengo sus nombres) ---
 	if velocity != Vector2.ZERO:
 		if abs(velocity.x) > abs(velocity.y):
@@ -72,3 +55,33 @@ func _physics_process(delta):
 	else:
 		animated_sprite.stop()
 		animated_sprite.frame = 0
+		
+		#-----PATRULLA
+func _patrol(delta:float) -> void:
+	var target= patrol_points[patrol_index]
+	var direction = (target - global_position).normalized() 
+	velocity  = direction * speed 
+	move_and_slide()
+	
+	if global_position.distance_to(target) < 05.0:
+		patrol_index = (patrol_index + 1) % patrol_points.size()
+		print("🚶 Patrullando hacia:", patrol_points[patrol_index])
+
+		
+func _chase(delta:float) -> void:
+	if player:
+		var direction = (player.global_position - global_position).normalized()
+		velocity = direction * speed * 1.2 
+		move_and_slide()
+		
+func _on_player_detected(body: Node) -> void:
+	if body == player:
+		print("👀 Jugador detectado")
+		state = State.CHASE
+
+func _on_player_lost(body: Node) -> void:
+	if body == player:
+		print("🔍 Jugador perdido")
+		state = State.PATROL
+	
+		

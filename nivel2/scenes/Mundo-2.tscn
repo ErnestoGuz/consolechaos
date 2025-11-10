@@ -6086,8 +6086,9 @@ limit_bottom = 800
 position_smoothing_enabled = true
 
 [node name="enemigo" parent="." instance=ExtResource("5_alb0f")]
-position = Vector2(-152, 205)
+position = Vector2(542, 333)
 player_path = NodePath("../Jugador")
+patrol_points_path = NodePath("../Node2D")
 
 [node name="Node2d" parent="." instance=ExtResource("5_jyhyq")]
 position = Vector2(237, 159)
@@ -6123,6 +6124,21 @@ offset_bottom = 48.0
 theme_override_colors/font_color = Color(0.99102217, 0.96176773, 0.95977026, 1)
 theme_override_font_sizes/font_size = 25
 text = "Rompecabezas Resueltos : 0"
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="Node2D"]
+position = Vector2(299, 563)
+gizmo_extents = 20.0
+
+[node name="Marker2D2" type="Marker2D" parent="Node2D"]
+position = Vector2(575, 666)
+
+[node name="Marker2D3" type="Marker2D" parent="Node2D"]
+position = Vector2(824, 328)
+
+[node name="Marker2D4" type="Marker2D" parent="Node2D"]
+position = Vector2(1137, 650)
 
 [editable path="Node2d2"]
 [editable path="Node2d3"]
