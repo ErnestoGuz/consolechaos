@@ -66,7 +66,7 @@ func _physics_process(delta):
 			if velocity.x > 0:
 				animated_sprite.play("derecha")
 			else:
-				animated_sprite.play("izquierda")
+				animated_sprite.play("Izquierda")
 		else:
 			animated_sprite.play("espaldas")
 	else:

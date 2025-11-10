@@ -18,7 +18,7 @@ signal puzzle_completed  # 🔔 Se emite al resolver el puzzle
 @onready var punto: Control = $Panel/punto
 @onready var win_label: Label = $Panel/Ganaste
 
-
+var max_time := 90.0  # Tiempo límite en segundos
 var start_time := 0.0
 var timer_running := false
 var piece_size := Vector2()
@@ -28,6 +28,8 @@ var empty_pos := Vector2i()
 var is_shuffling := false
 var is_solved := false
 var last_piece: TextureRect
+
+
 
 func _ready():
 	# Fondo semitransparente
@@ -95,6 +97,17 @@ func _ready():
 			tr.size = piece_size
 			tr.position = base_pos + Vector2(x, y) * piece_size
 			tr.mouse_filter = Control.MOUSE_FILTER_PASS
+			
+			var label := Label.new()
+			label.text = str(y * cols + x + 1)
+			label.size = piece_size
+			label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+			label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+			label.autowrap_mode = TextServer.AUTOWRAP_OFF
+			label.modulate= Color.BLACK
+			label.add_theme_color_override("font_size",24)
+			
+			tr.add_child(label)
 			add_child(tr)
 
 			var piece = {
@@ -129,9 +142,9 @@ func shuffle_pieces():
 		win_label.visible = false
 		win_label.modulate.a = 0.0
 
-	var num_moves = cols * rows * 10
+	var num_moves = cols * rows * 5
 	for i in range(num_moves):
-		await get_tree().create_timer(0.02).timeout
+		await get_tree().create_timer(0.01).timeout
 		random_move()
 	is_shuffling = false
 
@@ -201,6 +214,32 @@ func show_last_piece():
 func _process(delta):
 	if timer_running:
 		var elapsed = Time.get_ticks_msec() / 1000.0 - start_time
+		var remaining = max_time - elapsed
+		
+		if remaining <= 0.0:
+			timer_running= false
+			show_defeat()
+			return
+			
 		var minutes = int(elapsed / 60)
 		var seconds = int(elapsed) % 60
 		timer_label.text = "%02d:%02d" % [minutes, seconds]
+
+func show_defeat():
+	timer_label.text= "01:30"
+	var defeat_label := Label.new()
+	defeat_label.text= "Tiempo agotado"
+	defeat_label.size = Vector2(300,50)
+	defeat_label.position = get_viewport().get_visible_rect().size / 2 - defeat_label.size / 2
+	defeat_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	defeat_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	defeat_label.add_theme_color_override("font_size", 32)
+	defeat_label.modulate = Color.RED
+	add_child(defeat_label)
+	
+	await get_tree().create_timer(2.0).timeout
+	queue_free()
+	
+func open_puzzle():
+	visible = true
+	

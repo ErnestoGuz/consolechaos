@@ -90,19 +90,17 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pqx6n"]
-size = Vector2(112, 136)
+size = Vector2(56, 148)
 
 [node name="enemigo" type="CharacterBody2D"]
 position = Vector2(94, 51)
 script = ExtResource("1_l8v5o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(417.99997, 237)
-scale = Vector2(0.30000007, 0.25185186)
+position = Vector2(394.51907, 209.10567)
+scale = Vector2(0.23736559, 0.33725345)
 sprite_frames = SubResource("SpriteFrames_dlx6f")
-animation = &"espaldas"
-frame = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(394, 229)
+position = Vector2(398, 207)
 shape = SubResource("RectangleShape2D_pqx6n")
