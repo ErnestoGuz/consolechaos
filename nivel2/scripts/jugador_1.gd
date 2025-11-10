@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 
+
 func _physics_process(_delta):
 	var dir: Vector2 = Input.get_vector("idle_izquierda_new", "idle_derecha_new", "idle_espalda_new", "idle_abajo_new")
 	

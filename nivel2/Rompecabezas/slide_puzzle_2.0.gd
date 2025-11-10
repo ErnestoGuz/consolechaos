@@ -37,11 +37,7 @@ func _ready():
 	scene_bg.z_index = -1000
 	add_child(scene_bg)
 	
-	var overlay:= Sprite2D.new()
-	overlay.texture = preload()
-	overlay.scale = get_viewport().get_visible_rect().size / overlay.texture.get.size()
-	overlay.z_index= -100
-	add_child(overlay)
+	
 
 	if win_label:
 		win_label.visible = true
@@ -183,6 +179,7 @@ func check_if_solved():
 	is_solved = true
 	timer_running= false
 	show_last_piece()
+	get_node("/root/Main").focus_on_player()
 
 func show_last_piece():
 	last_piece.visible = true
@@ -196,7 +193,13 @@ func show_last_piece():
 		win_label.modulate.a = 0.0
 		var tween_label = create_tween()
 		tween_label.tween_property(win_label, "modulate:a", 1.0, 1.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-
+func show_defeat():
+	var defeat_label := Label.new()
+	defeat_label.text = "¡Tiempo agotado!"
+	add_child(defeat_label)
+	await get_tree().create_timer(2.0).timeout
+	get_node("/root/Main").focus_on_player()
+	queue_free()
 
 func _process(delta):
 	if timer_running:

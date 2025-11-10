@@ -6076,6 +6076,15 @@ tile_set = SubResource("TileSet_jyhyq")
 [node name="Jugador" parent="." groups=["Player"] instance=ExtResource("2_fih2i")]
 position = Vector2(240, 264)
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(240, 264)
+zoom = Vector2(2, 2)
+limit_left = 0
+limit_top = 0
+limit_right = 1366
+limit_bottom = 800
+position_smoothing_enabled = true
+
 [node name="enemigo" parent="." instance=ExtResource("5_alb0f")]
 position = Vector2(-152, 205)
 player_path = NodePath("../Jugador")
@@ -6086,6 +6095,15 @@ position = Vector2(237, 159)
 [node name="Node2d2" parent="." instance=ExtResource("5_jyhyq")]
 position = Vector2(182, 694)
 puzzle_image = ExtResource("6_fwqd2")
+
+[node name="CollisionShape2D" parent="Node2d2/Area2D" index="0"]
+position = Vector2(10, -18)
+
+[node name="CollisionShape2D" parent="Node2d2/StaticBody2D" index="0"]
+position = Vector2(5, -7)
+
+[node name="Sprite2D" parent="Node2d2" index="2"]
+position = Vector2(2.9999995, -8)
 
 [node name="Node2d3" parent="." instance=ExtResource("5_jyhyq")]
 position = Vector2(1127, 129)
