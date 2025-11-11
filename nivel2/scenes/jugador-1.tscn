@@ -113,13 +113,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g5e25"]
 size = Vector2(28, 64)
 
-[node name="Jugador" type="CharacterBody2D"]
+[node name="Jugador" type="CharacterBody2D" groups=["jugador"]]
 position = Vector2(94, 51)
 script = ExtResource("1_6jk6k")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, 5)
-scale = Vector2(0.17659575, 0.16444445)
+scale = Vector2(0.13617024, 0.14222223)
 sprite_frames = SubResource("SpriteFrames_g5e25")
 animation = &"idle_abajo_new"
 

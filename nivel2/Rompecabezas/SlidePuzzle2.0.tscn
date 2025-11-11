@@ -19,11 +19,11 @@ position = Vector2(512, 136)
 
 [node name="Ganaste" type="Label" parent="."]
 offset_left = 520.0
-offset_top = 360.0
-offset_right = 728.0
-offset_bottom = 429.0
+offset_top = 488.0
+offset_right = 838.0
+offset_bottom = 598.0
 theme_override_colors/font_color = Color(0.77246886, 0, 0.07301728, 1)
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 80
 text = "Ganaste"
 
 [node name="TimerLabel" type="Label" parent="."]

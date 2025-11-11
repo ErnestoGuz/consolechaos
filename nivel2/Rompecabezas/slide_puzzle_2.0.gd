@@ -90,7 +90,21 @@ func _ready():
 			tr.size = piece_size
 			tr.position = base_pos + Vector2(x, y) * piece_size
 			tr.mouse_filter = Control.MOUSE_FILTER_PASS
-			add_child(tr)
+			 # 🔹 Número visible en la pieza
+			var label := Label.new()
+			label.text = str(y * cols + x + 1)
+			label.size = piece_size
+			label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+			label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+			label.autowrap_mode = TextServer.AUTOWRAP_OFF
+			label.add_theme_color_override("font_color", Color.YELLOW_GREEN)
+			label.add_theme_font_size_override("font_size", 24)
+			
+			var custom_font = load("res://fonts/AlegreyaSansSC-Bold.ttf")
+			label.add_theme_font_override("font", custom_font)
+			label.add_theme_font_size_override("font_size", 24)
+			tr.add_child(label)   # el número va dentro de la pieza
+			add_child(tr)  
 
 			var piece = {
 				"tex_rect": tr,
@@ -114,8 +128,7 @@ func _ready():
 
 	shuffle_pieces()
 	print("¿Mezcla terminada?", is_shuffling)
-	start_time = Time.get_ticks_msec() / 1000.0
-	timer_running = true
+	
 
 
 
@@ -128,9 +141,12 @@ func shuffle_pieces():
 
 	var num_moves = cols * rows * 10
 	for i in range(num_moves):
-		await get_tree().create_timer(0.02).timeout
+		await get_tree().create_timer(0.01).timeout
 		random_move()
 	is_shuffling = false
+	
+	start_time = Time.get_ticks_msec() / 1000.0
+	timer_running = true
 
 func random_move():
 	var directions = [Vector2i(-1, 0), Vector2i(1, 0), Vector2i(0, -1), Vector2i(0, 1)]
@@ -199,6 +215,7 @@ func show_defeat():
 	add_child(defeat_label)
 	await get_tree().create_timer(2.0).timeout
 	get_node("/root/Main").focus_on_player()
+	get_node("/root/Main").show_counter() 
 	queue_free()
 
 func _process(delta):

@@ -23,6 +23,7 @@ func _on_body_entered(body):
 	get_tree().current_scene.add_child(puzzle_instance)
 	await get_tree().process_frame
 	get_node("/root/Main").focus_on_puzzle(puzzle_instance)
+	get_node("/root/Main").hide_counter() #oculta el contador 
 
 	# Desactivar al jugador
 	player.set_process(false)

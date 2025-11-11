@@ -1,29 +1,33 @@
 extends CharacterBody2D
 
-@onready var animate_sprite = $AnimatedSprite2D
+@export var speed: float = 200.0
 
-const SPEED = 300.0
+# Referencia al AnimatedSprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+func _physics_process(delta):
+	var input_vector = Vector2.ZERO
 
-func _physics_process(_delta):
-	var dir: Vector2 = Input.get_vector("idle_izquierda_new", "idle_derecha_new", "idle_espalda_new", "idle_abajo_new")
-	
-	if dir != Vector2.ZERO:
-		if dir.x != 0:
-			if dir.x > 0:
-				animate_sprite.play("idle_derecha_new")
-			else:
-				animate_sprite.play("idle_izquierda_new")
-		else:
-			if dir.y > 0:
-				animate_sprite.play("idle_abajo_new")
-			else:
-				animate_sprite.play("idle_espalda_new")
-	else:
-		animate_sprite.stop()
-		animate_sprite.frame = 0  # opcional para volver al primer frame
-	
-	velocity = dir * SPEED
+	# Movimiento con teclas de dirección (flechas o WASD)
+	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
+	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
+	input_vector = input_vector.normalized()
+
+	# Aplicar velocidad
+	velocity = input_vector * speed
 	move_and_slide()
-	
-	pass
+
+	# --- Control de animaciones ---
+	if input_vector == Vector2.ZERO:
+		sprite.stop()
+	else:
+		if abs(input_vector.x) > abs(input_vector.y):
+			if input_vector.x > 0:
+				sprite.play("derecha")
+			else:
+				sprite.play("izquierda")
+		else:
+			if input_vector.y > 0:
+				sprite.play("adelante")
+			else:
+				sprite.play("espaldas")
