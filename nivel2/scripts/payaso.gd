@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed: float = 150.0
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
 @onready var player: CharacterBody2D = get_parent().get_node("Jugador")
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D  # ✅ animaciones del enemigo
 
 func _ready():
 	navigation_agent_2d.path_desired_distance = 8.0
@@ -20,12 +21,29 @@ func _physics_process(delta):
 		var next_position = navigation_agent_2d.get_next_path_position()
 		var direction = (next_position - global_position).normalized()
 		velocity = direction * speed
+
+		# ✅ Animar según la dirección del movimiento
+		if abs(direction.x) > abs(direction.y):
+			# Movimiento horizontal
+			if direction.x > 0:
+				sprite.play("derecha")
+			else:
+				sprite.play("izquierda")
+		else:
+			# Movimiento vertical
+			if direction.y > 0:
+				sprite.play("adelante")
+			else:
+				sprite.play("adelante")  # puedes poner otra animación si tienes una de "atrás"
+
 	else:
 		velocity = Vector2.ZERO
+		sprite.stop()  # se detiene la animación al no moverse
 
 	move_and_slide()
 
 func _on_body_entered(body):
 	if body == player:
-		print("¡Jugador atrapado por colisión!")
+		print("¡Jugador atrapado por colision ")
 		velocity = Vector2.ZERO
+		sprite.stop()

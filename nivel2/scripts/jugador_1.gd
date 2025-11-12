@@ -23,11 +23,11 @@ func _physics_process(delta):
 	else:
 		if abs(input_vector.x) > abs(input_vector.y):
 			if input_vector.x > 0:
-				sprite.play("derecha")
+				sprite.play("idle_derecha_new")
 			else:
-				sprite.play("izquierda")
+				sprite.play("idle_izquierda_new")
 		else:
 			if input_vector.y > 0:
-				sprite.play("adelante")
+				sprite.play("idle_abajo_new")
 			else:
-				sprite.play("espaldas")
+				sprite.play("idle_espalda_new")
