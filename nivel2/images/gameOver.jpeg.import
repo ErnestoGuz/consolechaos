@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b66ny2voe0cew"
-path="res://.godot/imported/Barra-Emptypreview.png-64ebbda354e4b9d965061e24b4c14bb2.ctex"
+uid="uid://bitxbna4dj0bt"
+path="res://.godot/imported/gameOver.jpeg-876d831dd368ecebfcdd8c551c25bb68.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://nivel2/images/Barra-Emptypreview.png"
-dest_files=["res://.godot/imported/Barra-Emptypreview.png-64ebbda354e4b9d965061e24b4c14bb2.ctex"]
+source_file="res://nivel2/images/gameOver.jpeg"
+dest_files=["res://.godot/imported/gameOver.jpeg-876d831dd368ecebfcdd8c551c25bb68.ctex"]
 
 [params]
 

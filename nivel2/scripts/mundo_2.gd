@@ -1,8 +1,10 @@
 extends Node2D
 
 var puzzles_completed := 0
-@onready var counter_bar: HBoxContainer = $UI/PuzzleCounter
-@export var max_pieces := 5 
+@onready var counter_label: Label = $UI/PuzzleCounter
+@onready var puzzle_icon: TextureRect = $UI/PuzzleIcon
+
+
 @onready var cam: Camera2D = $Camera2D
 @onready var player: Node2D = $Jugador
 
@@ -30,25 +32,22 @@ func focus_on_player():
 	var tween := create_tween()
 	tween.tween_property(cam, "zoom", Vector2(1,1), 0.5)
 
-func _ready():
-	update_counter()
+#func _ready():
+	
 	
 func increment_puzzle_count():
 	puzzles_completed += 1
 	update_counter()
-
-func update_counter():
-	for i in range(max_pieces):
-		var piece = counter_bar.get_child(i)
-		if i < puzzles_completed:
-			piece.texture = preload("res://nivel2/images/barra-fullpreview.png")
-		else:
-			piece.texture = preload("res://nivel2/images/Barra-Emptypreview.png")
-		
 	
+func update_counter(): 
+	counter_label.text = "Rompecabezas resueltos: %d" % puzzles_completed
+
 #oculta y muestra el label 
 func hide_counter():
-	counter_bar.visible = false
+	$UI/PuzzleCounter.visible = false
+	$UI/PuzzleIcon.visible = false
 
 func show_counter():
-	counter_bar.visible = true
+	$UI/PuzzleCounter.visible = true
+	$UI/PuzzleIcon.visible = true
+	

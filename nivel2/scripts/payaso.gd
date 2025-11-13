@@ -32,9 +32,8 @@ func _physics_process(delta):
 		else:
 			# Movimiento vertical
 			if direction.y > 0:
-				sprite.play("adelante")
-			else:
-				sprite.play("adelante")  # puedes poner otra animación si tienes una de "atrás"
+				sprite.play("espaldas")
+			  # puedes poner otra animación si tienes una de "atrás"
 
 	else:
 		velocity = Vector2.ZERO
@@ -47,3 +46,4 @@ func _on_body_entered(body):
 		print("¡Jugador atrapado por colision ")
 		velocity = Vector2.ZERO
 		sprite.stop()
+		#get_tree().change_scene_to_file("res://nivel2/GameOver.tscn")

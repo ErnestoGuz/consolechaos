@@ -3,13 +3,14 @@ extends Node2D
 @export var puzzle_scene: PackedScene  # Aquí asignarás SlidePuzzle.tscn
 @export var puzzle_image: Texture2D    # Imagen personalizada para esta caja
 
-@onready var player = get_node("/root/Main/Jugador")
+@onready var player = get_tree().get_first_node_in_group("Player")
 
 func _ready():
 	$Area2D.connect("body_entered", Callable(self, "_on_body_entered"))
 
 func _on_body_entered(body):
-	if body.name != "Jugador":
+	print("Entró:", body.name, " en caja:", self.name)
+	if not body.is_in_group("Player"):
 		return
 
 	var puzzle_instance = puzzle_scene.instantiate()

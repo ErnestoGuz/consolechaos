@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ks6dgfskjbk0" path="res://nivel2/images/descarga.jpg" id="3_kgx5t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a3sut"]
-size = Vector2(84.75, 77)
+size = Vector2(69.375, 52.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t6jbs"]
 size = Vector2(76, 57.875)
@@ -17,9 +17,10 @@ puzzle_scene = ExtResource("2_kgx5t")
 puzzle_image = ExtResource("3_kgx5t")
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2, -7)
+position = Vector2(-2, 0.75)
 shape = SubResource("RectangleShape2D_a3sut")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -30,5 +31,5 @@ shape = SubResource("RectangleShape2D_t6jbs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.9999995, -4.7683716e-07)
-scale = Vector2(0.17400001, 0.17999999)
+scale = Vector2(0.15599999, 0.13599999)
 texture = ExtResource("1_mtutm")

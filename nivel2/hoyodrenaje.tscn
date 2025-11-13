@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://x2dwp2hsmc"]
+
+[ext_resource type="Texture2D" uid="uid://ds5taasc46bw8" path="res://nivel2/images/hoyodrenasje.png" id="1_2w6u4"]
+[ext_resource type="Script" uid="uid://bx6ki0l6kpfld" path="res://nivel2/hoyo.gd" id="2_o4ypj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o4ypj"]
+radius = 142.15912
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_appde"]
+radius = 33.37664
+
+[node name="hoyo" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(329.99997, 191)
+scale = Vector2(0.158, 0.158)
+texture = ExtResource("1_2w6u4")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(329, 191)
+scale = Vector2(0.176, 0.176)
+shape = SubResource("CircleShape2D_o4ypj")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+script = ExtResource("2_o4ypj")
+target_node = NodePath("../TeleportTarget")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(331, 188)
+shape = SubResource("CircleShape2D_appde")
+
+[node name="TeleportTarget" type="Node2D" parent="."]

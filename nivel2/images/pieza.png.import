@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kmigdxkdcuts"
-path="res://.godot/imported/barra-fullpreview.png-09f958d2d2f4bc69c353d77b84656509.ctex"
+uid="uid://qmxhfmbb2ygl"
+path="res://.godot/imported/pieza.png-82ee8d1ccb1d7d5fc68e89a959a33444.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://nivel2/images/barra-fullpreview.png"
-dest_files=["res://.godot/imported/barra-fullpreview.png-09f958d2d2f4bc69c353d77b84656509.ctex"]
+source_file="res://nivel2/images/pieza.png"
+dest_files=["res://.godot/imported/pieza.png-82ee8d1ccb1d7d5fc68e89a959a33444.ctex"]
 
 [params]
 

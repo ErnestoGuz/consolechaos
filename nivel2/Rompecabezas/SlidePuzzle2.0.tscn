@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://4o28ss4wqxra"]
+[gd_scene load_steps=5 format=3 uid="uid://4o28ss4wqxra"]
 
 [ext_resource type="Script" uid="uid://dvlly13vk1qh8" path="res://nivel2/Rompecabezas/slide_puzzle_2.0.gd" id="1_g4g1s"]
 [ext_resource type="Texture2D" uid="uid://bxuowjkqah5u0" path="res://nivel2/images/smile2.jpg" id="2_3umvj"]
 [ext_resource type="Texture2D" uid="uid://dcljhmwkb3fx4" path="res://nivel2/images/marco.png" id="3_y1c84"]
+[ext_resource type="FontFile" uid="uid://dhjbptnl1inv6" path="res://fonts/Pixel Game.otf" id="4_ki0n0"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_g4g1s")
@@ -18,18 +19,20 @@ texture = ExtResource("3_y1c84")
 position = Vector2(512, 136)
 
 [node name="Ganaste" type="Label" parent="."]
-offset_left = 520.0
-offset_top = 488.0
-offset_right = 838.0
-offset_bottom = 598.0
+offset_left = 512.0
+offset_top = 328.0
+offset_right = 876.0
+offset_bottom = 450.0
 theme_override_colors/font_color = Color(0.77246886, 0, 0.07301728, 1)
-theme_override_font_sizes/font_size = 80
+theme_override_fonts/font = ExtResource("4_ki0n0")
+theme_override_font_sizes/font_size = 120
 text = "Ganaste"
 
 [node name="TimerLabel" type="Label" parent="."]
-offset_left = 1144.0
-offset_top = 40.0
-offset_right = 1205.0
-offset_bottom = 74.0
-theme_override_font_sizes/font_size = 24
+offset_left = 1104.0
+offset_top = 24.0
+offset_right = 1230.0
+offset_bottom = 96.0
+theme_override_fonts/font = ExtResource("4_ki0n0")
+theme_override_font_sizes/font_size = 70
 text = "00:00"
