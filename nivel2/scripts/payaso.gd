@@ -28,12 +28,12 @@ func _physics_process(delta):
 			if direction.x > 0:
 				sprite.play("derecha")
 			else:
-				sprite.play("izquierda")
+				sprite.play("new_animation")
 		else:
 			# Movimiento vertical
 			if direction.y > 0:
 				sprite.play("espaldas")
-			  # puedes poner otra animación si tienes una de "atrás"
+			  
 
 	else:
 		velocity = Vector2.ZERO

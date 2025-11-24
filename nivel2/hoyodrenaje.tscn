@@ -26,10 +26,7 @@ shape = SubResource("CircleShape2D_o4ypj")
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 3
 script = ExtResource("2_o4ypj")
-target_node = NodePath("../TeleportTarget")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(331, 188)
 shape = SubResource("CircleShape2D_appde")
-
-[node name="TeleportTarget" type="Node2D" parent="."]

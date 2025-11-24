@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfjpb1jkd81gy"]
+
+[ext_resource type="Script" uid="uid://msjdvq66aulg" path="res://nivel2/Rompecabezas/puzzle_box_2.0.gd" id="1_pxtmp"]
+[ext_resource type="PackedScene" uid="uid://4o28ss4wqxra" path="res://nivel2/Rompecabezas/SlidePuzzle2.0.tscn" id="2_xlflw"]
+[ext_resource type="Texture2D" uid="uid://dwjd5cmevnwc7" path="res://nivel2/images/box.png" id="3_glb7j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7u7e"]
+size = Vector2(56.5, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bayc2"]
+size = Vector2(68, 52)
+
+[node name="cajaInteractiva" type="StaticBody2D"]
+collision_layer = 3
+script = ExtResource("1_pxtmp")
+puzzle_scene = ExtResource("2_xlflw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(120, 56.999992)
+scale = Vector2(0.172, 0.172)
+texture = ExtResource("3_glb7j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(118.75, 56)
+shape = SubResource("RectangleShape2D_b7u7e")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(118, 56)
+shape = SubResource("RectangleShape2D_bayc2")

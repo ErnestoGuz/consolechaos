@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://4o28ss4wqxra"]
 
 [ext_resource type="Script" uid="uid://dvlly13vk1qh8" path="res://nivel2/Rompecabezas/slide_puzzle_2.0.gd" id="1_g4g1s"]
-[ext_resource type="Texture2D" uid="uid://bxuowjkqah5u0" path="res://nivel2/images/smile2.jpg" id="2_3umvj"]
+[ext_resource type="Texture2D" uid="uid://dwpcyd4tlvlt" path="res://nivel2/images/it-viejo664x376.png" id="2_ki0n0"]
 [ext_resource type="Texture2D" uid="uid://dcljhmwkb3fx4" path="res://nivel2/images/marco.png" id="3_y1c84"]
 [ext_resource type="FontFile" uid="uid://dhjbptnl1inv6" path="res://fonts/Pixel Game.otf" id="4_ki0n0"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_g4g1s")
-image = ExtResource("2_3umvj")
+image = ExtResource("2_ki0n0")
 border_color = Color(1, 1, 1, 1)
 
 [node name="Overlay" type="Sprite2D" parent="."]
@@ -16,7 +16,7 @@ scale = Vector2(2.0451128, 2.1333334)
 texture = ExtResource("3_y1c84")
 
 [node name="punto" type="Node2D" parent="."]
-position = Vector2(512, 136)
+position = Vector2(320, 192)
 
 [node name="Ganaste" type="Label" parent="."]
 offset_left = 512.0

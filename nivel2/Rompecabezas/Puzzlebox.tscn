@@ -1,35 +1,47 @@
-[gd_scene load_steps=7 format=3 uid="uid://ct1hkljg5u4re"]
+[gd_scene load_steps=9 format=3 uid="uid://ct1hkljg5u4re"]
 
 [ext_resource type="Script" uid="uid://di6imt2sq1syk" path="res://nivel2/Rompecabezas/puzzlebox.gd" id="1_a3sut"]
 [ext_resource type="Texture2D" uid="uid://dwjd5cmevnwc7" path="res://nivel2/images/box.png" id="1_mtutm"]
 [ext_resource type="PackedScene" uid="uid://4o28ss4wqxra" path="res://nivel2/Rompecabezas/SlidePuzzle2.0.tscn" id="2_kgx5t"]
 [ext_resource type="Texture2D" uid="uid://ks6dgfskjbk0" path="res://nivel2/images/descarga.jpg" id="3_kgx5t"]
+[ext_resource type="Texture2D" uid="uid://bsqa5hvn53jo" path="res://nivel2/images/box_open.png" id="5_spqmf"]
+[ext_resource type="FontFile" uid="uid://tt8nc5f3wcb1" path="res://fonts/LAUGHTER.otf" id="6_cuxj1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3sut"]
-size = Vector2(69.375, 52.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cuxj1"]
+size = Vector2(60, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t6jbs"]
-size = Vector2(76, 57.875)
+size = Vector2(52, 37)
 
 [node name="Node2d" type="Node2D"]
 script = ExtResource("1_a3sut")
 puzzle_scene = ExtResource("2_kgx5t")
 puzzle_image = ExtResource("3_kgx5t")
+caja_cerrada = ExtResource("1_mtutm")
+caja_abierta = ExtResource("5_spqmf")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-2, 0.75)
-shape = SubResource("RectangleShape2D_a3sut")
+shape = SubResource("RectangleShape2D_cuxj1")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-2, -2)
+position = Vector2(1, 0.5)
 shape = SubResource("RectangleShape2D_t6jbs")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.9999995, -4.7683716e-07)
 scale = Vector2(0.15599999, 0.13599999)
 texture = ExtResource("1_mtutm")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -60.0
+offset_top = -33.0
+offset_right = 76.0
+offset_bottom = -15.0
+theme_override_fonts/font = ExtResource("6_cuxj1")
+theme_override_font_sizes/font_size = 12
+text = "Presiona B para interactuar"

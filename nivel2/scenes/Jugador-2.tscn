@@ -2,44 +2,24 @@
 
 [ext_resource type="Texture2D" uid="uid://cxptbm172dit" path="res://nivel2/framespersonaje/payaso/idle_payaso.png" id="1_iun0e"]
 [ext_resource type="Script" uid="uid://gjf15wg72l8u" path="res://nivel2/scripts/payaso.gd" id="1_l8v5o"]
-[ext_resource type="Texture2D" uid="uid://bw387f36ppcw6" path="res://nivel2/framespersonaje/payaso/izquierda/izqui_7.png" id="2_5l3dn"]
-[ext_resource type="Texture2D" uid="uid://chlbkbanrojl3" path="res://nivel2/framespersonaje/payaso/izquierda/izqui_8.png" id="3_2fio6"]
-[ext_resource type="Texture2D" uid="uid://c2xt2cxhqvd4u" path="res://nivel2/framespersonaje/payaso/izquierda/izqui_9.png" id="4_bf1n7"]
-[ext_resource type="Texture2D" uid="uid://dkhvn27obfjjy" path="res://nivel2/framespersonaje/payaso/izquierda/izqui_10.png" id="5_0nu5g"]
-[ext_resource type="Texture2D" uid="uid://bwbqatpnryjwy" path="res://nivel2/framespersonaje/payaso/izquierda/izqui_11.png" id="6_uc2k3"]
 [ext_resource type="Texture2D" uid="uid://bvxejirr30m8k" path="res://nivel2/framespersonaje/payaso/derecha/derecha_1.png" id="8_qooqj"]
 [ext_resource type="Texture2D" uid="uid://cu8t3irsswo6r" path="res://nivel2/framespersonaje/payaso/derecha/derecha_2.png" id="9_c8nwv"]
 [ext_resource type="Texture2D" uid="uid://c7i1cjm6vkr5e" path="res://nivel2/framespersonaje/payaso/derecha/derecha_3.png" id="10_f7o81"]
 [ext_resource type="Texture2D" uid="uid://ctxfahyuinaov" path="res://nivel2/framespersonaje/payaso/derecha/derecha_4.png" id="11_ftl0k"]
 [ext_resource type="Texture2D" uid="uid://w5s581js0qtn" path="res://nivel2/framespersonaje/payaso/derecha/derecha_5.png" id="12_tpjnr"]
+[ext_resource type="Texture2D" uid="uid://cfmt4acsfnmu5" path="res://nivel2/images/izquierda-payaso/izqui_7.png" id="13_5l3dn"]
 [ext_resource type="Texture2D" uid="uid://blfr58hd76msq" path="res://nivel2/framespersonaje/payaso/espaldas/espal_1.png" id="13_mj64h"]
+[ext_resource type="Texture2D" uid="uid://dyndednuo6o15" path="res://nivel2/images/izquierda-payaso/izqui_8.png" id="14_2fio6"]
 [ext_resource type="Texture2D" uid="uid://fxe2k60aulyj" path="res://nivel2/framespersonaje/payaso/espaldas/espal_2.png" id="14_c4ekm"]
+[ext_resource type="Texture2D" uid="uid://de6cooei0ps6r" path="res://nivel2/images/izquierda-payaso/izqui_9.png" id="15_bf1n7"]
 [ext_resource type="Texture2D" uid="uid://bqq38le8rmfb5" path="res://nivel2/framespersonaje/payaso/espaldas/espal_5.png" id="15_strwu"]
+[ext_resource type="Texture2D" uid="uid://jg7oix437q6c" path="res://nivel2/images/izquierda-payaso/izqui_10.png" id="16_0nu5g"]
 [ext_resource type="Texture2D" uid="uid://c0h8w82sqdijr" path="res://nivel2/framespersonaje/payaso/espaldas/espal_3.png" id="16_o8rxa"]
 [ext_resource type="Texture2D" uid="uid://bb1vvn2u4mpwk" path="res://nivel2/framespersonaje/payaso/espaldas/espal_4.png" id="17_3jnvp"]
+[ext_resource type="Texture2D" uid="uid://d4cgpjoib4654" path="res://nivel2/images/izquierda-payaso/izqui_11.png" id="17_uc2k3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dlx6f"]
 animations = [{
-"frames": [{
-"duration": 0.91,
-"texture": ExtResource("2_5l3dn")
-}, {
-"duration": 0.91,
-"texture": ExtResource("3_2fio6")
-}, {
-"duration": 0.91,
-"texture": ExtResource("4_bf1n7")
-}, {
-"duration": 0.91,
-"texture": ExtResource("5_0nu5g")
-}, {
-"duration": 0.91,
-"texture": ExtResource("6_uc2k3")
-}],
-"loop": true,
-"name": &"Izquierda",
-"speed": 3.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_iun0e")
@@ -87,10 +67,30 @@ animations = [{
 "loop": true,
 "name": &"espaldas",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 0.41,
+"texture": ExtResource("13_5l3dn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_2fio6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_bf1n7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_0nu5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_uc2k3")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 3.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pqx6n"]
-size = Vector2(32, 80)
+size = Vector2(32, 72)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5l3dn"]
 size = Vector2(48, 72)
@@ -100,13 +100,15 @@ position = Vector2(94, 51)
 script = ExtResource("1_l8v5o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-6, -3)
-scale = Vector2(0.09166666, 0.11851852)
+position = Vector2(-14.000004, -11.000002)
+scale = Vector2(0.108333334, 0.1037037)
 sprite_frames = SubResource("SpriteFrames_dlx6f")
-animation = &"derecha"
+animation = &"new_animation"
+frame = 4
+frame_progress = 0.51036876
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-14, -3)
+position = Vector2(-14, -7)
 shape = SubResource("RectangleShape2D_pqx6n")
 
 [node name="Area2D" type="Area2D" parent="."]

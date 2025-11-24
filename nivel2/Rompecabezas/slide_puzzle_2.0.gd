@@ -6,7 +6,7 @@ signal puzzle_completed
 @export var image: Texture2D
 @export_range(2, 10) var cols := 4
 @export_range(2, 10) var rows := 4
-@export_range(0.1, 10.0, 0.05) var scale_factor := 1.5
+@export_range(0.1, 10.0, 0.05) var scale_factor := 1.0
 
 @export_category("Colores")
 @export var border_color := Color(0.86, 0.238, 0.632, 1.0)
@@ -29,6 +29,8 @@ var is_shuffling := false
 var is_solved := false
 var last_piece: TextureRect
 
+const PUZZLE_TIME := 120.0 
+
 func _ready():
 	var scene_bg := ColorRect.new()
 	scene_bg.color = scene_bg_color
@@ -49,7 +51,7 @@ func _ready():
 	var img = image.get_image()
 	img.resize(img.get_width() * scale_factor, img.get_height() * scale_factor)
 	piece_size = Vector2(img.get_width() / cols, img.get_height() / rows)
-	var base_pos = punto.global_position
+	var base_pos = punto.position
 
 	var border_rect = ColorRect.new()
 	border_rect.color = border_color
@@ -195,7 +197,9 @@ func check_if_solved():
 	is_solved = true
 	timer_running= false
 	show_last_piece()
-	get_node("/root/Main").focus_on_player()
+	
+	emit_signal("puzzle_completed")
+
 
 func show_last_piece():
 	last_piece.visible = true
@@ -214,14 +218,36 @@ func show_defeat():
 	defeat_label.text = "¡Tiempo agotado!"
 	add_child(defeat_label)
 	await get_tree().create_timer(2.0).timeout
-	get_node("/root/Main").focus_on_player()
+	
 	get_node("/root/Main").show_counter() 
 	queue_free()
+func start_blinking():
+	timer_label.set_meta("blinking", true)
+	var tween = create_tween()
+	tween.set_loops()
+	
+	tween.tween_property(timer_label, "modulate:a", 0.3, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property(timer_label, "modulate:a", 1.0, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 func _process(delta):
-	if timer_running:
+	if timer_running and not is_solved:
 		var elapsed = Time.get_ticks_msec() / 1000.0 - start_time
-		var minutes  = int(elapsed/60)
-		var seconds = int(elapsed)%60
+		var remaining = PUZZLE_TIME - elapsed
+		
+		if remaining <= 0:
+			timer_running = false
+			show_defeat()
+			return
+		var minutes = int(remaining / 60)
+		var seconds = int(remaining) % 60
 		timer_label.text = "%02d:%02d" % [minutes, seconds] 
+		
+		if remaining <= 30:
+			timer_label.add_theme_color_override("font_color", Color.RED)
+		else: 
+			timer_label.add_theme_color_override("font_color", Color.WHITE)
+		if remaining <= 10 and not timer_label.has_meta("blinking"):
+			start_blinking()
+			
+			
 	
