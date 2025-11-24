@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2e8einvttqv2"]
+
+[ext_resource type="Script" uid="uid://l53brh785wv" path="res://nivel3/pruebaEnemigo.gd" id="1_ylsls"]
+[ext_resource type="Texture2D" uid="uid://cviiqbb7msf4k" path="res://icon.svg" id="2_lqpvi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hvrsy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lqpvi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gn7tg"]
+size = Vector2(127, 104)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6agf"]
+size = Vector2(141, 118)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(265, 125)
+script = ExtResource("1_ylsls")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -1)
+sprite_frames = SubResource("SpriteFrames_hvrsy")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-3, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(3, -2)
+shape = SubResource("RectangleShape2D_gn7tg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_x6agf")

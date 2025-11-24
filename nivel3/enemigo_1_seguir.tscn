@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://b02uihwu0esnh"]
+
+[ext_resource type="Script" uid="uid://bx4ev7lp88pc6" path="res://nivel3/enemigo_1_seguir.gd" id="1_ho30m"]
+[ext_resource type="Texture2D" uid="uid://bw3eqtbql2ubl" path="res://nivel3/fantasma1-removebg-preview.png" id="2_s1b5c"]
+[ext_resource type="Texture2D" uid="uid://ditw1dklc0o20" path="res://nivel3/fantasma/fantasma1.png" id="3_i5kof"]
+[ext_resource type="Texture2D" uid="uid://dotmiwu0trenh" path="res://nivel3/fantasma/fantasma2.png" id="4_msqf1"]
+[ext_resource type="Texture2D" uid="uid://bvdx7diefwrhb" path="res://nivel3/fantasma/fantasma3.png" id="5_8ftsu"]
+[ext_resource type="Texture2D" uid="uid://wf7u4gn5sar6" path="res://nivel3/fantasma/fantasma4.png" id="6_gry62"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3xv6"]
+size = Vector2(120.40817, 239.28575)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1n2at"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_i5kof")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_msqf1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_8ftsu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gry62")
+}],
+"loop": true,
+"name": &"caminar",
+"speed": 3.0
+}]
+
+[node name="Enemigo1" type="CharacterBody2D"]
+position = Vector2(185, 98)
+script = ExtResource("1_ho30m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-1.5, -5.25)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_s1b5c")
+hframes = 4
+frame = 3
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-19, 1)
+scale = Vector2(0.7, 0.7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(26.428574, 3.392868)
+scale = Vector2(0.69999987, 0.69999987)
+shape = SubResource("RectangleShape2D_i3xv6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+sprite_frames = SubResource("SpriteFrames_1n2at")
+animation = &"caminar"
+frame_progress = 0.7838956

@@ -1,0 +1,209 @@
+[gd_scene load_steps=34 format=3 uid="uid://isga8slivdt2"]
+
+[ext_resource type="Script" uid="uid://cgaftley83oyp" path="res://nivel1/tiempo/tiempo.gd" id="1_mivdy"]
+[ext_resource type="Script" uid="uid://b5w2p5j4t6r0c" path="res://nivel1/level1/generadorpregu.gd" id="2_4aqov"]
+[ext_resource type="PackedScene" uid="uid://b85vvu07a5lr" path="res://nivel1/personaje/character_body_2d.tscn" id="3_86o2b"]
+[ext_resource type="PackedScene" uid="uid://mvd6cre1m88m" path="res://nivel1/level1/area2drespuestas.tscn" id="4_cy7xh"]
+[ext_resource type="Script" uid="uid://ch7w8icykm57e" path="res://nivel1/level1/respuestas_layer.gd" id="5_cy7xh"]
+[ext_resource type="PackedScene" uid="uid://dga7j8gs351xu" path="res://nivel1/zombie2/zombiemov.tscn" id="6_iu3k3"]
+[ext_resource type="Script" uid="uid://bj3nvodtkb4v1" path="res://nivel1/cubo.gd" id="7_5jii6"]
+[ext_resource type="Texture2D" uid="uid://cviiqbb7msf4k" path="res://icon.svg" id="8_hoqam"]
+[ext_resource type="Texture2D" uid="uid://cemhy6wssgvtu" path="res://nivel1/zombie2/frame1.2.png" id="9_eold6"]
+[ext_resource type="Texture2D" uid="uid://082iohwdp7bk" path="res://nivel1/zombie2/frame2.png" id="10_mlir8"]
+[ext_resource type="Texture2D" uid="uid://cx1wepmdmpl04" path="res://nivel1/zombie2/frame3.png" id="11_55gi2"]
+[ext_resource type="Texture2D" uid="uid://crhvi5pvompim" path="res://nivel1/zombie2/frame4.png" id="12_hcore"]
+[ext_resource type="Texture2D" uid="uid://b0jw6jrgnqh76" path="res://nivel1/zombie2/frame5.2.png" id="13_cjtk6"]
+[ext_resource type="Texture2D" uid="uid://cjpdpexvef03h" path="res://nivel1/zombie2/frame6.png" id="14_ft8q5"]
+[ext_resource type="Texture2D" uid="uid://df5haobhd7xi7" path="res://nivel1/zombie2/frame8.png" id="15_tat15"]
+[ext_resource type="Texture2D" uid="uid://c6jj33m77qyns" path="res://nivel1/zombie2/frame1E.png" id="16_5nqwj"]
+[ext_resource type="Texture2D" uid="uid://05w6vux2up5a" path="res://nivel1/zombie2/frame2E.png" id="17_guu7k"]
+[ext_resource type="Texture2D" uid="uid://dc8nkppircx3f" path="res://nivel1/zombie2/frame3E.png" id="18_5ir4x"]
+[ext_resource type="Texture2D" uid="uid://c2e8tj8bqemif" path="res://nivel1/zombie2/frame4E.png" id="19_6hqhb"]
+[ext_resource type="Texture2D" uid="uid://dfjdvsccw6k1h" path="res://nivel1/zombie2/frame5E.png" id="20_c4v5f"]
+[ext_resource type="Texture2D" uid="uid://dxyo436u3nk4v" path="res://nivel1/zombie2/frame1D.2.png" id="21_cqv8b"]
+[ext_resource type="Texture2D" uid="uid://c6s2d3bp82jg6" path="res://nivel1/zombie2/frame2D.png" id="22_r0bt1"]
+[ext_resource type="Texture2D" uid="uid://bugv0p1mdtaf5" path="res://nivel1/zombie2/frame3D.png" id="23_uv1te"]
+[ext_resource type="Texture2D" uid="uid://bmey2u80tnln3" path="res://nivel1/zombie2/frame4D.png" id="24_fkwoo"]
+[ext_resource type="Texture2D" uid="uid://dh7wykpqql1ej" path="res://nivel1/zombie2/frame1I.png" id="25_rj0td"]
+[ext_resource type="Texture2D" uid="uid://wa2xmku4wstr" path="res://nivel1/zombie2/frame2I.png" id="26_7hdky"]
+[ext_resource type="Texture2D" uid="uid://0kramwi6b2ey" path="res://nivel1/zombie2/frame3I.png" id="27_2xc38"]
+[ext_resource type="Texture2D" uid="uid://c5jvbnu3wkc0l" path="res://nivel1/zombie2/frame4I.png" id="28_by02n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5kst"]
+size = Vector2(23, 58)
+
+[sub_resource type="LabelSettings" id="LabelSettings_a5kst"]
+font_size = 18
+outline_size = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_do2fh"]
+size = Vector2(76, 119)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_74eu0"]
+size = Vector2(41, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_derbi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_eold6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_mlir8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_55gi2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_hcore")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_cjtk6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ft8q5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_tat15")
+}],
+"loop": true,
+"name": &"abajo",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_5nqwj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_guu7k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_5ir4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_6hqhb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_c4v5f")
+}],
+"loop": true,
+"name": &"arriba",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_cqv8b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_r0bt1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_uv1te")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_r0bt1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_fkwoo")
+}],
+"loop": true,
+"name": &"derecha",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_rj0td")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_7hdky")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_2xc38")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_by02n")
+}],
+"loop": true,
+"name": &"izquierda",
+"speed": 6.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="personaje" parent="." instance=ExtResource("3_86o2b")]
+z_index = 1
+position = Vector2(328, 139)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="personaje"]
+position = Vector2(159.5, 48)
+shape = SubResource("RectangleShape2D_a5kst")
+
+[node name="Camera2D" type="Camera2D" parent="personaje"]
+z_index = 1
+position = Vector2(175, 96)
+zoom = Vector2(1.5, 1.5)
+
+[node name="Tiempo" type="Line2D" parent="personaje/Camera2D"]
+position = Vector2(-204, -186)
+scale = Vector2(4.3714285, 1)
+points = PackedVector2Array(0, 0, 100, 0)
+width = 20.0
+default_color = Color(0.3031678, 0.9903293, 0.4084952, 1)
+script = ExtResource("1_mivdy")
+
+[node name="Timer" type="Timer" parent="personaje/Camera2D/Tiempo"]
+autostart = true
+
+[node name="CanvasLayerPreguntas" type="CanvasLayer" parent="personaje/Camera2D"]
+script = ExtResource("2_4aqov")
+
+[node name="preguntas" type="Label" parent="personaje/Camera2D/CanvasLayerPreguntas"]
+anchors_preset = -1
+anchor_left = 0.15300001
+anchor_top = 0.057000004
+anchor_right = 0.18900001
+anchor_bottom = 0.11100001
+offset_left = -0.25601196
+offset_top = 0.063999176
+offset_right = -0.40800476
+offset_bottom = -0.26400757
+text = "Hola"
+label_settings = SubResource("LabelSettings_a5kst")
+metadata/_edit_use_anchors_ = true
+
+[node name="zombie" parent="." groups=["personaje"] instance=ExtResource("6_iu3k3")]
+position = Vector2(161.99998, 51.999996)
+scale = Vector2(0.8, 0.8)
+
+[node name="zombie2_0" type="CharacterBody2D" parent="."]
+script = ExtResource("7_5jii6")
+
+[node name="Sprite2D" type="Sprite2D" parent="zombie2_0"]
+visible = false
+texture = ExtResource("8_hoqam")
+
+[node name="Area2D" type="Area2D" parent="zombie2_0"]
+position = Vector2(0, 3.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie2_0/Area2D"]
+position = Vector2(-4, -2)
+shape = SubResource("RectangleShape2D_do2fh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie2_0"]
+position = Vector2(-5.5, -39)
+shape = SubResource("RectangleShape2D_74eu0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="zombie2_0"]
+sprite_frames = SubResource("SpriteFrames_derbi")
+animation = &"derecha"
+
+[node name="RespuestasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+script = ExtResource("5_cy7xh")
+respuesta_scene = ExtResource("4_cy7xh")
+
+[node name="Area2D" parent="RespuestasLayer" instance=ExtResource("4_cy7xh")]
+visible = false
+position = Vector2(273, 37)
+
+[connection signal="timeout" from="personaje/Camera2D/Tiempo/Timer" to="personaje/Camera2D/Tiempo" method="_on_timer_timeout"]

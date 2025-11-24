@@ -8,6 +8,7 @@
 
 [node name="player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_0uui1")
+metadata/Player = false
 
 [node name="Sprite2D" type="Sprite2D" parent="player"]
 

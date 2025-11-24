@@ -124,17 +124,6 @@ position = Vector2(617, 258)
 sprite_frames = SubResource("SpriteFrames_ok6ck")
 animation = &"caminar_abajo_new"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite"]
-position = Vector2(1, 3.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(618, 261.5)
 shape = SubResource("RectangleShape2D_7n6nq")
-
-[node name="Label" type="Label" parent="AnimatedSprite"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -767.0
-offset_top = -312.0
-offset_right = -727.0
-offset_bottom = -289.0
-grow_horizontal = 2
-text = ".hola"

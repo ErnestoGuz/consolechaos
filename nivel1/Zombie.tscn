@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://dx6fd45yfnsxc"]
+[gd_scene load_steps=3 format=3 uid="uid://dx6fd45yfnsxc"]
+
+[ext_resource type="Script" uid="uid://lysdmgwd1bpc" path="res://nivel1/zombie.gd" id="1_doa3w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1glnc"]
 
 [node name="Zombie" type="Node2D"]
+
+[node name="zombie" type="CharacterBody2D" parent="."]
+script = ExtResource("1_doa3w")
+speed = null
+
+[node name="Sprite2D" type="Sprite2D" parent="zombie"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="zombie"]
+shape = SubResource("CircleShape2D_1glnc")

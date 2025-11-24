@@ -186,16 +186,16 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkhe5"]
 size = Vector2(21.499998, 22.000004)
 
-[node name="personaje" type="CharacterBody2D"]
-position = Vector2(94, 51)
+[node name="personaje" type="CharacterBody2D" groups=["personaje"]]
+position = Vector2(152, 81)
 script = ExtResource("1_t7pg7")
 
 [node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
-position = Vector2(160, 48)
+position = Vector2(1.5258789e-05, 2.800003)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_7sed0")
 
-[node name="coli" type="CollisionShape2D" parent="AnimatedSprite"]
-position = Vector2(0, 115)
-scale = Vector2(4.999997, 4.999997)
+[node name="coli" type="CollisionShape2D" parent="."]
+position = Vector2(1.5258789e-05, 25.800003)
+scale = Vector2(0.99999946, 0.99999946)
 shape = SubResource("RectangleShape2D_vkhe5")

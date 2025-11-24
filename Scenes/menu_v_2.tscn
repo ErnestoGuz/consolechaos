@@ -1,0 +1,116 @@
+[gd_scene load_steps=9 format=3 uid="uid://h3r6wra0ckkr"]
+
+[ext_resource type="Script" uid="uid://beepquvevfvlp" path="res://Scripts/menu.gd" id="1_bvwb6"]
+[ext_resource type="Texture2D" uid="uid://d0yjfrxrypuiy" path="res://Images/fondo2.0.png" id="2_jihgy"]
+[ext_resource type="FontFile" uid="uid://tt8nc5f3wcb1" path="res://fonts/LAUGHTER.otf" id="3_yqcs1"]
+[ext_resource type="StyleBox" uid="uid://bgmvrbti3cykq" path="res://buttons/button_morado.tres" id="4_oam6e"]
+[ext_resource type="Script" uid="uid://d0e7wf5s7dgul" path="res://Scenes/textoPrincipal.gd" id="6_n8luh"]
+[ext_resource type="StyleBox" uid="uid://dobi5k0cimi13" path="res://buttons/buttonPressed.tres" id="7_56bqt"]
+
+[sub_resource type="Theme" id="Theme_cayip"]
+default_font = ExtResource("3_yqcs1")
+
+[sub_resource type="Theme" id="Theme_bvwb6"]
+default_font = ExtResource("3_yqcs1")
+default_font_size = 91
+
+[node name="Menu_v2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bvwb6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.7792914, 0.7792914, 0.7792913, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jihgy")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -544.0
+offset_top = -42.0
+offset_right = -212.0
+offset_bottom = 243.24854
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_cayip")
+theme_override_constants/separation = 15
+alignment = 1
+
+[node name="play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 52
+theme_override_styles/normal = ExtResource("4_oam6e")
+theme_override_styles/pressed = ExtResource("7_56bqt")
+theme_override_styles/hover = ExtResource("7_56bqt")
+text = " PLAY"
+
+[node name="options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("4_oam6e")
+theme_override_styles/pressed = ExtResource("7_56bqt")
+theme_override_styles/hover = ExtResource("7_56bqt")
+text = " SETTINGS"
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = ExtResource("4_oam6e")
+theme_override_styles/pressed = ExtResource("7_56bqt")
+theme_override_styles/hover = ExtResource("7_56bqt")
+text = " EXIT"
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.066
+anchor_right = 0.5
+anchor_bottom = 0.104
+offset_left = -486.0
+offset_top = 0.23199844
+offset_right = -13.0
+offset_bottom = 155.608
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_bvwb6")
+bbcode_enabled = true
+text = "[center][shake rate=6 level=15][b]THE CHAOS CONSOLE[/b]
+[/shake]
+[/center]
+
+"
+scroll_active = false
+script = ExtResource("6_n8luh")
+
+[connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]
