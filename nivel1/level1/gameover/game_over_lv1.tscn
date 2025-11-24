@@ -1,0 +1,140 @@
+[gd_scene load_steps=12 format=3 uid="uid://cp808q588k86v"]
+
+[ext_resource type="Script" uid="uid://cbqtbai8bvtrg" path="res://nivel1/level1/gameover/game_over_lv_1.gd" id="1_dx1gd"]
+[ext_resource type="Texture2D" uid="uid://b0h4fof4ya430" path="res://nivel1/level1/gameover/gameover2.jpg" id="1_n2snd"]
+[ext_resource type="FontFile" uid="uid://tt8nc5f3wcb1" path="res://fonts/LAUGHTER.otf" id="2_dx1gd"]
+[ext_resource type="Script" uid="uid://dyy1dguy3ax4e" path="res://Scenes/button_restart.gd" id="3_fimwj"]
+[ext_resource type="AudioStream" uid="uid://ds51exl5q04wu" path="res://nivel1/level1/gameover/gameovermusic.mp3" id="5_fimwj"]
+
+[sub_resource type="Animation" id="Animation_8fjjq"]
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Panel/VBoxContainer/RichTextLabel/RestartGameButton:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.06666667, 1.9333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.011764706), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wjav1"]
+resource_name = "animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666666, 0.93333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ot31c"]
+_data = {
+&"RESET": SubResource("Animation_8fjjq"),
+&"animation": SubResource("Animation_wjav1")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrj02"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_rm0lf"]
+default_font = ExtResource("2_dx1gd")
+default_font_size = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wjav1"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="GameOverV2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dx1gd")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -86.0
+offset_right = -4.0
+offset_bottom = 294.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_n2snd")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ot31c")
+}
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 3.0
+offset_right = 1158.0
+offset_bottom = 647.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_mrj02")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = 45.0
+offset_right = 171.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_rm0lf")
+bbcode_enabled = true
+
+[node name="RestartGameButton" type="Button" parent="Panel/VBoxContainer/RichTextLabel"]
+modulate = Color(1, 1, 1, 0.011764706)
+z_index = 1
+layout_mode = 0
+offset_left = -5.0
+offset_top = 97.0
+offset_right = 231.0
+offset_bottom = 172.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_wjav1")
+text = "RESTART"
+script = ExtResource("3_fimwj")
+restart_scene = "uid://ikq10kfl5gm7"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_fimwj")
+autoplay = true

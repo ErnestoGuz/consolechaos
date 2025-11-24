@@ -1,0 +1,129 @@
+[gd_scene load_steps=24 format=3 uid="uid://dga7j8gs351xu"]
+
+[ext_resource type="Texture2D" uid="uid://cemhy6wssgvtu" path="res://nivel1/zombie2/frame1.2.png" id="1_6qy4n"]
+[ext_resource type="Script" uid="uid://d3uggcj28qred" path="res://nivel1/zombie2/zombiemov.gd" id="1_7n6nq"]
+[ext_resource type="Texture2D" uid="uid://082iohwdp7bk" path="res://nivel1/zombie2/frame2.png" id="2_7n6nq"]
+[ext_resource type="Texture2D" uid="uid://cx1wepmdmpl04" path="res://nivel1/zombie2/frame3.png" id="3_pbmmm"]
+[ext_resource type="Texture2D" uid="uid://crhvi5pvompim" path="res://nivel1/zombie2/frame4.png" id="4_x6lf6"]
+[ext_resource type="Texture2D" uid="uid://b0jw6jrgnqh76" path="res://nivel1/zombie2/frame5.2.png" id="5_cnl32"]
+[ext_resource type="Texture2D" uid="uid://cjpdpexvef03h" path="res://nivel1/zombie2/frame6.png" id="6_xhoid"]
+[ext_resource type="Texture2D" uid="uid://bndmq5x38f36c" path="res://nivel1/zombie2/frame7.png" id="7_wjmcw"]
+[ext_resource type="Texture2D" uid="uid://df5haobhd7xi7" path="res://nivel1/zombie2/frame8.png" id="8_44seh"]
+[ext_resource type="Texture2D" uid="uid://bxcaddjg84i24" path="res://nivel1/zombie2/frame1D.png" id="9_8mdpl"]
+[ext_resource type="Texture2D" uid="uid://c6s2d3bp82jg6" path="res://nivel1/zombie2/frame2D.png" id="10_sdwmd"]
+[ext_resource type="Texture2D" uid="uid://bugv0p1mdtaf5" path="res://nivel1/zombie2/frame3D.png" id="11_7cjh4"]
+[ext_resource type="Texture2D" uid="uid://bmey2u80tnln3" path="res://nivel1/zombie2/frame4D.png" id="12_he5o4"]
+[ext_resource type="Texture2D" uid="uid://c6jj33m77qyns" path="res://nivel1/zombie2/frame1E.png" id="13_wro6l"]
+[ext_resource type="Texture2D" uid="uid://05w6vux2up5a" path="res://nivel1/zombie2/frame2E.png" id="14_qjp8v"]
+[ext_resource type="Texture2D" uid="uid://dc8nkppircx3f" path="res://nivel1/zombie2/frame3E.png" id="15_5krws"]
+[ext_resource type="Texture2D" uid="uid://c2e8tj8bqemif" path="res://nivel1/zombie2/frame4E.png" id="16_dyeue"]
+[ext_resource type="Texture2D" uid="uid://dh7wykpqql1ej" path="res://nivel1/zombie2/frame1I.png" id="17_4dbt1"]
+[ext_resource type="Texture2D" uid="uid://wa2xmku4wstr" path="res://nivel1/zombie2/frame2I.png" id="18_avred"]
+[ext_resource type="Texture2D" uid="uid://0kramwi6b2ey" path="res://nivel1/zombie2/frame3I.png" id="19_3ldfp"]
+[ext_resource type="Texture2D" uid="uid://c5jvbnu3wkc0l" path="res://nivel1/zombie2/frame4I.png" id="20_plbfu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ok6ck"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6qy4n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7n6nq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pbmmm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_x6lf6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_cnl32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_xhoid")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_wjmcw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_44seh")
+}],
+"loop": true,
+"name": &"caminar_abajo",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_wro6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qjp8v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_5krws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_dyeue")
+}],
+"loop": true,
+"name": &"caminar_arriba",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_8mdpl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_sdwmd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_7cjh4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_he5o4")
+}],
+"loop": true,
+"name": &"caminar_derecha",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_4dbt1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_avred")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_3ldfp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_plbfu")
+}],
+"loop": true,
+"name": &"caminar_izquierda",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6qy4n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7n6nq"]
+size = Vector2(66, 99)
+
+[node name="zombie" type="CharacterBody2D"]
+script = ExtResource("1_7n6nq")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(617, 258)
+sprite_frames = SubResource("SpriteFrames_ok6ck")
+animation = &"caminar_arriba"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(618, 261.5)
+shape = SubResource("RectangleShape2D_7n6nq")

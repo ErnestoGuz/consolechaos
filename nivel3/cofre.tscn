@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://s6uf8n7vpnwq"]
+
+[ext_resource type="Script" uid="uid://dstyg4isfnl4k" path="res://nivel3/cofre.gd" id="1_uo0s7"]
+[ext_resource type="Texture2D" uid="uid://dkm20rmw61oa3" path="res://nivel3/cofre_nuevo.png" id="2_h276b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c14o6"]
+size = Vector2(39, 31)
+
+[node name="Cofre" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_uo0s7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(207, 65)
+scale = Vector2(1.3583333, 1.348)
+texture = ExtResource("2_h276b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(208, 65)
+shape = SubResource("RectangleShape2D_c14o6")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = 154.0
+offset_top = 17.0
+offset_right = 265.0
+offset_bottom = 40.0
+text = "[E] Interactuar"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

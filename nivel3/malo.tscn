@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2cwsmdwemc7h"]
+
+[ext_resource type="Script" uid="uid://t4q05vr51rqk" path="res://nivel3/malo.gd" id="1_osj4m"]
+[ext_resource type="Texture2D" uid="uid://28wtph65rshr" path="res://nivel3/Poder/boladefuego.png" id="2_0yqis"]
+[ext_resource type="Texture2D" uid="uid://d2x45xyiu80o" path="res://nivel3/Poder/boladefuego2.png" id="3_8d86x"]
+[ext_resource type="Texture2D" uid="uid://b6btc4q1stjda" path="res://nivel3/Poder/boladefuego3.png" id="4_2bh7s"]
+[ext_resource type="Texture2D" uid="uid://dkuffbu58mdco" path="res://nivel3/Poder/boladefuego4.png" id="5_18e3j"]
+[ext_resource type="Texture2D" uid="uid://cs3sjcysvw42e" path="res://nivel3/Poder/boladefuego5.png" id="6_0ilvf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4g2mf"]
+size = Vector2(338.19226, 134.11061)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_osj4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0yqis")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8d86x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2bh7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_18e3j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0ilvf")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="Malo" type="CharacterBody2D"]
+position = Vector2(506, 185)
+scale = Vector2(0.7, 0.7)
+script = ExtResource("1_osj4m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-5.714286, -29.99997)
+texture = ExtResource("3_8d86x")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-19, 1)
+scale = Vector2(0.7, 0.7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(33.26532, -5.510132)
+scale = Vector2(0.70000005, 0.70000005)
+shape = SubResource("RectangleShape2D_4g2mf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_osj4m")
+animation = &"walk"
+frame_progress = 0.0440212
+
+[node name="FloorDetection" type="RayCast2D" parent="AnimatedSprite2D"]
+position = Vector2(-71.24536, 4.7683716e-07)
+scale = Vector2(0.7, 0.7)
+target_position = Vector2(-0.2616577, 65.30612)
+
+[node name="Izquierda" type="RayCast2D" parent="."]
+position = Vector2(-2, -8)
+scale = Vector2(0.7, 0.7)
+target_position = Vector2(-101.22449, -0.8163147)
+
+[node name="Derecha" type="RayCast2D" parent="."]
+position = Vector2(5, -9)
+scale = Vector2(0.7, 0.7)
+target_position = Vector2(105.10205, 0.61224365)

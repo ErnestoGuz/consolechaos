@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://dm7e6y3gw4dkm"]
+
+[ext_resource type="Script" uid="uid://bl0b78rtbkx8r" path="res://nivel3/Poder/malo_abajo.gd" id="1_11b35"]
+[ext_resource type="Texture2D" uid="uid://d2x45xyiu80o" path="res://nivel3/Poder/boladefuego2.png" id="2_s2m3b"]
+[ext_resource type="Texture2D" uid="uid://cv8bse77dk0gb" path="res://nivel3/Poder/boladefuego_arriba.png" id="3_s2m3b"]
+[ext_resource type="Texture2D" uid="uid://cd5x1fjycu1g0" path="res://nivel3/Poder/boladefuego2_arriba.png" id="4_6rxvv"]
+[ext_resource type="Texture2D" uid="uid://sxcwmjlpk0dl" path="res://nivel3/Poder/boladefuego3_arriba.png" id="5_hmasb"]
+[ext_resource type="Texture2D" uid="uid://c4d30kgec05yi" path="res://nivel3/Poder/boladefuego4_arriba.png" id="6_41kg5"]
+[ext_resource type="Texture2D" uid="uid://bpgfbfyp5qwxw" path="res://nivel3/Poder/boladefuego5_arriba.png" id="7_5yflb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2m3b"]
+size = Vector2(124.48996, 289.79593)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6rxvv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_s2m3b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6rxvv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_hmasb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_41kg5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5yflb")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="MaloAbajo" type="CharacterBody2D"]
+position = Vector2(498, 246)
+script = ExtResource("1_11b35")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-5.714286, -29.99997)
+texture = ExtResource("2_s2m3b")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-19, 1)
+scale = Vector2(0.7, 0.7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(22.142944, -17.142853)
+scale = Vector2(0.6999998, 0.6999998)
+shape = SubResource("RectangleShape2D_s2m3b")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6rxvv")
+animation = &"walk"
+frame_progress = 0.09830052
+
+[node name="FloorDetection" type="RayCast2D" parent="AnimatedSprite2D"]
+visible = false
+position = Vector2(-38.000004, 21.999998)
+scale = Vector2(0.7, 0.7)
+target_position = Vector2(-0.2616577, 65.30612)
+
+[node name="Abajo" type="RayCast2D" parent="."]
+position = Vector2(-2, -8)
+scale = Vector2(0.7, 0.7)
+target_position = Vector2(0, 110)
+
+[node name="Arriba" type="RayCast2D" parent="."]
+position = Vector2(5, -9)
+scale = Vector2(0.7, 0.7)
+target_position = Vector2(0, -120)

@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bi5eta03c034g"]
+
+[ext_resource type="VideoStream" uid="uid://chrchmj80vems" path="res://Scenes/Intro_juego.ogv" id="1_uwktr"]
+[ext_resource type="Script" uid="uid://lihdj06bjbe2" path="res://Scenes/intro_juego.gd" id="1_xvkwe"]
+[ext_resource type="FontFile" uid="uid://tt8nc5f3wcb1" path="res://fonts/LAUGHTER.otf" id="2_i1kps"]
+[ext_resource type="StyleBox" uid="uid://bgmvrbti3cykq" path="res://buttons/button_morado.tres" id="3_xvkwe"]
+[ext_resource type="StyleBox" uid="uid://dobi5k0cimi13" path="res://buttons/buttonPressed.tres" id="4_ymb7m"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xvkwe")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_uwktr")
+autoplay = true
+expand = true
+
+[node name="Skip" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1023.0
+offset_top = 11.0
+offset_right = 1140.0
+offset_bottom = 79.0
+theme_override_fonts/font = ExtResource("2_i1kps")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = ExtResource("3_xvkwe")
+theme_override_styles/pressed = ExtResource("4_ymb7m")
+theme_override_styles/hover = ExtResource("4_ymb7m")
+text = "SKIP"
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
+[connection signal="pressed" from="Skip" to="." method="_on_skip_pressed"]

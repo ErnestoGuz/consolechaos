@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://ddt4q14ut0t82"]
+
+[ext_resource type="Script" uid="uid://4y5cky5dhg6o" path="res://nivel1/preguntasytiempo.gd" id="1_eg5wy"]
+[ext_resource type="Script" uid="uid://dq6olgl74bsfn" path="res://nivel1/level1/tiempojuego.gd" id="1_je2py"]
+[ext_resource type="Script" uid="uid://cgaftley83oyp" path="res://nivel1/tiempo/tiempo.gd" id="2_lf4pu"]
+[ext_resource type="PackedScene" uid="uid://b85vvu07a5lr" path="res://nivel1/personaje/character_body_2d.tscn" id="4_6l16w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lc0y1"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_eg5wy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hl10g"]
+size = Vector2(44.5, 29)
+
+[node name="Tiempo" type="Node2D"]
+script = ExtResource("1_je2py")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_eg5wy")
+
+[node name="TiempoLabel" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 221.0
+offset_top = 144.0
+offset_right = 339.0
+offset_bottom = 179.0
+text = "Tiempo: 0"
+label_settings = SubResource("LabelSettings_lc0y1")
+
+[node name="Tiempo" type="Line2D" parent="CanvasLayer"]
+position = Vector2(5, 16)
+scale = Vector2(3.0375, 1)
+points = PackedVector2Array(0, 0, 300, 0)
+width = 20.0
+default_color = Color(0.3031678, 0.9903293, 0.4084952, 1)
+script = ExtResource("2_lf4pu")
+
+[node name="Timer" type="Timer" parent="CanvasLayer/Tiempo"]
+autostart = true
+
+[node name="PreguntaLabel" type="Label" parent="."]
+offset_left = 168.0
+offset_top = 45.0
+offset_right = 291.0
+offset_bottom = 80.0
+text = "Pregunta: "
+label_settings = SubResource("LabelSettings_eg5wy")
+
+[node name="PreguntaLabel2" type="Label" parent="PreguntaLabel"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -124.0
+offset_top = -2.0
+offset_right = -1.0
+offset_bottom = 33.0
+text = "Pregunta: "
+label_settings = SubResource("LabelSettings_eg5wy")
+
+[node name="personaje" parent="." instance=ExtResource("4_6l16w")]
+position = Vector2(448, 125)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="personaje"]
+position = Vector2(162, 72)
+shape = SubResource("RectangleShape2D_hl10g")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 49.0
+offset_top = 149.0
+offset_right = 398.0
+offset_bottom = 189.0
+
+[connection signal="timeout" from="CanvasLayer/Tiempo/Timer" to="CanvasLayer/Tiempo" method="_on_timer_timeout"]

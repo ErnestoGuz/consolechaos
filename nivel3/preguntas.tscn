@@ -1,0 +1,122 @@
+[gd_scene load_steps=8 format=3 uid="uid://b8uwq7l8ooepq"]
+
+[ext_resource type="Script" uid="uid://cbclh70bqpd3x" path="res://nivel3/preguntas.gd" id="1_s6kw2"]
+[ext_resource type="FontFile" uid="uid://tt8nc5f3wcb1" path="res://fonts/LAUGHTER.otf" id="2_jsf0b"]
+[ext_resource type="StyleBox" uid="uid://bgmvrbti3cykq" path="res://buttons/button_morado.tres" id="3_4di82"]
+[ext_resource type="StyleBox" uid="uid://dobi5k0cimi13" path="res://buttons/buttonPressed.tres" id="4_1bxga"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_s6kw2"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_jsf0b"]
+font = ExtResource("2_jsf0b")
+font_size = 46
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6dfj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_s6kw2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.60784316)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_s6kw2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -240.0
+offset_top = 48.0
+offset_right = 207.0
+offset_bottom = 94.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Selecciona tu respuesta"
+label_settings = SubResource("LabelSettings_jsf0b")
+
+[node name="Respuesta1" type="Button" parent="."]
+layout_mode = 0
+offset_left = 149.0
+offset_top = 166.0
+offset_right = 489.0
+offset_bottom = 317.0
+theme_override_fonts/font = ExtResource("2_jsf0b")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("3_4di82")
+theme_override_styles/pressed = ExtResource("4_1bxga")
+theme_override_styles/hover = ExtResource("4_1bxga")
+theme_override_styles/focus = SubResource("StyleBoxFlat_i6dfj")
+text = "Pregunta"
+
+[node name="Respuesta2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 672.0
+offset_top = 166.0
+offset_right = 1015.0
+offset_bottom = 317.0
+theme_override_fonts/font = ExtResource("2_jsf0b")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("3_4di82")
+theme_override_styles/pressed = ExtResource("4_1bxga")
+theme_override_styles/hover = ExtResource("4_1bxga")
+text = "Pregunta"
+
+[node name="Respuesta3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 422.0
+offset_right = 483.0
+offset_bottom = 573.0
+theme_override_fonts/font = ExtResource("2_jsf0b")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("3_4di82")
+theme_override_styles/pressed = ExtResource("4_1bxga")
+theme_override_styles/hover = ExtResource("4_1bxga")
+theme_override_styles/focus = SubResource("StyleBoxFlat_i6dfj")
+text = "Pregunta"
+
+[node name="Respuesta4" type="Button" parent="."]
+layout_mode = 0
+offset_left = 678.0
+offset_top = 415.0
+offset_right = 1021.0
+offset_bottom = 566.0
+theme_override_fonts/font = ExtResource("2_jsf0b")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = ExtResource("3_4di82")
+theme_override_styles/pressed = ExtResource("4_1bxga")
+theme_override_styles/hover = ExtResource("4_1bxga")
+text = "Pregunta"
+
+[connection signal="pressed" from="Respuesta1" to="." method="_on_respuesta_1_pressed"]
+[connection signal="pressed" from="Respuesta2" to="." method="_on_respuesta_2_pressed"]
+[connection signal="pressed" from="Respuesta3" to="." method="_on_respuesta_3_pressed"]
+[connection signal="pressed" from="Respuesta4" to="." method="_on_respuesta_4_pressed"]

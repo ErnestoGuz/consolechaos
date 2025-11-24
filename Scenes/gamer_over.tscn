@@ -1,0 +1,99 @@
+[gd_scene load_steps=9 format=3 uid="uid://bgpu8knbr068y"]
+
+[ext_resource type="FontFile" uid="uid://tt8nc5f3wcb1" path="res://fonts/LAUGHTER.otf" id="1_fbeqr"]
+[ext_resource type="Script" uid="uid://dpkvgqlmb3pfi" path="res://Scenes/gamer_over.gd" id="1_tq4el"]
+[ext_resource type="Script" uid="uid://dyy1dguy3ax4e" path="res://Scenes/button_restart.gd" id="2_tq4el"]
+
+[sub_resource type="Animation" id="Animation_ob6j0"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.06666667, 0.96666664),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_tq4el"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7yx3s"]
+_data = {
+&"RESET": SubResource("Animation_tq4el"),
+&"show": SubResource("Animation_ob6j0")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2y6k"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_7kdlx"]
+default_font = ExtResource("1_fbeqr")
+default_font_size = 50
+
+[node name="GamerOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tq4el")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7yx3s")
+}
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 644.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_e2y6k")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -59.5
+offset_right = 205.0
+offset_bottom = 111.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = SubResource("Theme_7kdlx")
+bbcode_enabled = true
+text = "[rainbow freq=1.0 sat=0.8 val=0.8][wave amp=50.0 freq5.0 connected = 1]GAME OVER [wave]"
+
+[node name="RestartGameButton" type="Button" parent="Panel/VBoxContainer/RichTextLabel"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 71.0
+offset_right = 192.0
+offset_bottom = 128.0
+text = "RESTART"
+script = ExtResource("2_tq4el")
+restart_scene = "uid://ikq10kfl5gm7"
