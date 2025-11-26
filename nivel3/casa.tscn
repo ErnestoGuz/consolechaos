@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=4 uid="uid://d0ponbnpxkwj5"]
+[gd_scene load_steps=46 format=4 uid="uid://d0ponbnpxkwj5"]
 
 [ext_resource type="Texture2D" uid="uid://ccp57l78216n2" path="res://nivel3/cocina.png" id="1_idbfc"]
 [ext_resource type="Texture2D" uid="uid://bsetekgn1p5mk" path="res://nivel3/estar.png" id="2_hos0l"]
@@ -17,10 +17,8 @@
 [ext_resource type="FontFile" uid="uid://tt8nc5f3wcb1" path="res://fonts/LAUGHTER.otf" id="14_w7alf"]
 [ext_resource type="PackedScene" uid="uid://b2cwsmdwemc7h" path="res://nivel3/malo.tscn" id="15_782y2"]
 [ext_resource type="AudioStream" uid="uid://rxxc7a543qij" path="res://audio/GrimFate-FULL.mp3" id="17_thrhw"]
-[ext_resource type="PackedScene" uid="uid://blllaffdwbqvd" path="res://addons/joystick_addon/touch_controls.tscn" id="17_utw2v"]
 [ext_resource type="PackedScene" uid="uid://b02uihwu0esnh" path="res://nivel3/enemigo_1_seguir.tscn" id="18_ycobk"]
 [ext_resource type="Script" uid="uid://buq6hd15xay0l" path="res://nivel3/zona_1_seguir.gd" id="19_xp800"]
-[ext_resource type="PackedScene" uid="uid://ddo47f38ulwyw" path="res://addons/joystick_addon/joystick.tscn" id="20_xp800"]
 [ext_resource type="PackedScene" uid="uid://dm7e6y3gw4dkm" path="res://nivel3/Poder/malo_abajo.tscn" id="22_i5tdc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_io0e5"]
@@ -39938,11 +39936,31 @@ position = Vector2(538, 471)
 position = Vector2(-3, 4)
 zoom = Vector2(1.5, 1.5)
 
-[node name="Joystick" parent="Node/Player/Camera2D" instance=ExtResource("20_xp800")]
+[node name="Joystick" parent="Node/Player/Camera2D"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 position = Vector2(-268, 99)
+script = null
 
-[node name="TouchControls" parent="Node/Player/Camera2D" instance=ExtResource("17_utw2v")]
+[node name="TouchControls" parent="Node/Player/Camera2D"]
+_import_path = NodePath("")
+unique_name_in_owner = false
+process_mode = 0
+process_priority = 0
+process_physics_priority = 0
+process_thread_group = 0
+physics_interpolation_mode = 0
+auto_translate_mode = 0
+editor_description = ""
 visible = false
+script = null
 
 [node name="Cofres" type="StaticBody2D" parent="."]
 z_index = 1
