@@ -1,4 +1,4 @@
-[gd_scene load_steps=187 format=4 uid="uid://dk8baj4m8sl3j"]
+[gd_scene load_steps=188 format=4 uid="uid://dk8baj4m8sl3j"]
 
 [ext_resource type="Script" uid="uid://dr3d24lg5clnj" path="res://nivel2/scripts/mundo_2.gd" id="1_fih2i"]
 [ext_resource type="Texture2D" uid="uid://dcpkr8rbacxma" path="res://nivel2/images/Escenario.png" id="1_yvd7t"]
@@ -12,6 +12,7 @@
 [ext_resource type="FontFile" uid="uid://tt8nc5f3wcb1" path="res://fonts/LAUGHTER.otf" id="10_7u0ni"]
 [ext_resource type="Texture2D" uid="uid://dwpcyd4tlvlt" path="res://nivel2/images/it-viejo664x376.png" id="10_rrtxp"]
 [ext_resource type="Texture2D" uid="uid://c514hh1cwo26b" path="res://nivel2/images/casa664x376.png" id="12_huiqw"]
+[ext_resource type="AudioStream" uid="uid://xg7va71v41wq" path="res://audio/terror.ogg" id="13_rrtxp"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_cjvry"]
 outlines = Array[PackedVector2Array]([PackedVector2Array(8, 8, 7.464136, 8, 8, 8, 8, 8)])
@@ -9306,6 +9307,10 @@ position = Vector2(994, 591)
 [node name="Node2d4" parent="." instance=ExtResource("7_m4h23")]
 position = Vector2(373, 708)
 puzzle_image = ExtResource("12_huiqw")
+
+[node name="MusicaFondo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_rrtxp")
+autoplay = true
 
 [editable path="hoyo"]
 [editable path="hoyo2"]
